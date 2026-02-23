@@ -10,18 +10,23 @@ export const axiosInstance = axios.create({
 
 axiosInstance.interceptors.response.use(
   response => response,
-
   error => {
-    let errorMessage = 'An unexpected error occurred. Please try again.';
     if (error.response) {
-      const { status } = error.response;
+      const { status, data } = error.response;
+
       if (status === CLIENT_ERRORS.UNAUTHORIZED) {
-        errorMessage = 'Invalid username or password. Please try again.';
+        throw new Error('Unauthorized access, please try again');
       }
-    } else {
-      errorMessage =
-        'Server is not reachable. Please check your internet connection.';
+
+      if (data?.message) {
+        throw new Error(data.message);
+      }
+
+      throw error;
     }
-    throw new Error(errorMessage);
+
+    throw new Error(
+      'Server is not reachable. Please check your internet connection.',
+    );
   },
 );
