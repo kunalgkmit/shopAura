@@ -19,7 +19,6 @@ export const validateEmail = (email: string) => {
 };
 
 export const validatePassword = (pwd: string) => {
-    console.log('PWD>>', pwd)
   if (!pwd) {
     return 'Password is required';
   }
@@ -40,8 +39,8 @@ export const validatePassword = (pwd: string) => {
     return 'At least one number';
   }
 
-  if (!/[@$!%*?&]/.test(pwd)) {
-    return 'At least one special character (@$!%*?&)';
+  if (/[@$!%*?&]/.test(pwd)) {
+    return 'No special characters allowed';
   }
   return '';
 };
