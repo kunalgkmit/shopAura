@@ -4,3 +4,8 @@ export interface SignUpProps {
   password: string;
   avatar: string;
 }
+
+export interface LoginProps {
+  email: string;
+  password: string;
+}
