@@ -1,7 +1,7 @@
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
-import SignUpScreen from './src/screens/signUp/SignUp';
+import LoginScreen from './src/screens/login/Login';
 
 const queryClient = new QueryClient();
 
@@ -9,7 +9,7 @@ function App() {
   return (
     <SafeAreaProvider>
       <QueryClientProvider client={queryClient}>
-        <SignUpScreen />
+        <LoginScreen />
       </QueryClientProvider>
     </SafeAreaProvider>
   );
