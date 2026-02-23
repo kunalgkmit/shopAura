@@ -12,3 +12,11 @@ interface CustomTextInputProps {
   multiLine?: boolean;
   isPassword?: boolean;
 }
+
+interface ButtonProps {
+  title: string;
+  onPress: () => void;
+  isPending?: boolean;
+  isLogout?: boolean;
+  isClearFilter?: boolean;
+}
