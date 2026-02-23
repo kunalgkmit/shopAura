@@ -1,5 +1,6 @@
-import React from 'react';
-import { Text, TextInput, View } from 'react-native';
+import React, { useState } from 'react';
+import { Text, TextInput, TouchableOpacity, View } from 'react-native';
+import Ionicons from '@react-native-vector-icons/ionicons';
 
 import { COLORS } from '../../constants/colors';
 import { styles } from './styles';
@@ -16,29 +17,36 @@ export default function CustomTextInput({
   keyboardType,
   maxLength,
   multiLine,
+  isPassword,
 }: CustomTextInputProps) {
-  return (
-    <View style={styles.inputContainer}>
-      <TextInput
-        onPressIn={onPress}
-        style={[
-          styles.input,
-          error && styles.inputError,
-          multiLine && styles.multiLine,
-        ]}
-        placeholder={placeholder}
-        placeholderTextColor={COLORS.TEXT_TERTIARY}
-        value={value}
-        onChangeText={onChangeText}
-        autoCapitalize={autoCapitalize}
-        editable={editable}
-        secureTextEntry={secureTextEntry}
-        keyboardType={keyboardType}
-        maxLength={maxLength}
-        multiline={multiLine}
-      />
+  const [passwordVisible, setPasswordVisible] = useState(secureTextEntry);
 
-      {error ? <Text style={styles.errorText}>{error}</Text> : null}
+  const handlePasswordVisible = () => {
+    setPasswordVisible(prev => !prev);
+  };
+  return (
+    <View style={styles.container}>
+      <View style={styles.inputContainer}>
+        <TextInput
+          style={[styles.input, error && styles.inputError]}
+          placeholder={placeholder}
+          placeholderTextColor={COLORS.TEXT_TERTIARY}
+          value={value}
+          onChangeText={onChangeText}
+          autoCapitalize={autoCapitalize}
+          editable={editable}
+          secureTextEntry={passwordVisible}
+        />
+        {error ? <Text style={styles.errorText}>{error}</Text> : null}
+      </View>
+      {isPassword ? (
+        <TouchableOpacity
+          style={styles.eyeIcon}
+          onPress={handlePasswordVisible}
+        >
+          <Ionicons name={passwordVisible ? 'eye' : 'eye-off'} size={22} />
+        </TouchableOpacity>
+      ) : null}
     </View>
   );
 }

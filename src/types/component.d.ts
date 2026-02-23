@@ -10,4 +10,5 @@ interface CustomTextInputProps {
   keyboardType?: KeyboardTypeOptions;
   maxLength?: number;
   multiLine?: boolean;
+  isPassword?: boolean;
 }

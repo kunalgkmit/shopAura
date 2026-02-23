@@ -2,6 +2,10 @@ import { StyleSheet } from 'react-native';
 import { COLORS } from '../../constants/colors';
 
 export const styles = StyleSheet.create({
+  container: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
   inputContainer: {
     width: '100%',
     marginBottom: 20,
@@ -15,6 +19,7 @@ export const styles = StyleSheet.create({
     fontSize: 16,
     borderWidth: 1,
     borderColor: COLORS.BORDER,
+    fontFamily: 'PlayfairDisplay-Medium',
   },
 
   inputError: {
@@ -34,4 +39,6 @@ export const styles = StyleSheet.create({
     textAlignVertical: 'top',
     paddingTop: 12,
   },
+
+  eyeIcon: { position: 'absolute', right: 10, top: 15 },
 });
