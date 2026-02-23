@@ -32,6 +32,7 @@ export const styles = StyleSheet.create({
     fontSize: 12,
     marginTop: 6,
     paddingLeft: 4,
+    fontFamily: 'PlayfairDisplay-Medium',
   },
 
   multiLine: {

@@ -44,7 +44,7 @@ export default function CustomTextInput({
           style={styles.eyeIcon}
           onPress={handlePasswordVisible}
         >
-          <Ionicons name={passwordVisible ? 'eye' : 'eye-off'} size={22} />
+          <Ionicons name={passwordVisible ? 'eye-off' : 'eye'} size={22} />
         </TouchableOpacity>
       ) : null}
     </View>
