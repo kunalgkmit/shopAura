@@ -91,7 +91,7 @@ export default function SignUpForm() {
 
         uploadAvatar(image, {
           onSuccess: data => {
-            setAvatar(data.location);
+            setAvatar(data);
 
             setErrors(prev => ({
               ...prev,

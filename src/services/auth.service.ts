@@ -23,5 +23,5 @@ export const uploadFileService = async (image: Asset) => {
     },
   });
 
-  return response.data;
+  return response.data.location;
 };
