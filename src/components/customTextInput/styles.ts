@@ -1,4 +1,8 @@
 import { StyleSheet } from 'react-native';
+import {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp,
+} from 'react-native-responsive-screen';
 import { COLORS } from '../../constants/colors';
 
 export const styles = StyleSheet.create({
@@ -8,18 +12,18 @@ export const styles = StyleSheet.create({
   },
   inputContainer: {
     width: '100%',
-    marginBottom: 20,
+    marginBottom: hp('1%'),
   },
 
   input: {
-    height: 52,
+    height: hp('5%'),
     backgroundColor: COLORS.BG_SURFACE,
     borderRadius: 12,
     paddingHorizontal: 16,
-    fontSize: 16,
+    fontSize: hp('2%'),
     borderWidth: 1,
     borderColor: COLORS.BORDER,
-    fontFamily: 'PlayfairDisplay-Medium',
+    width:'100%'
   },
 
   inputError: {
@@ -27,19 +31,36 @@ export const styles = StyleSheet.create({
     borderWidth: 1.5,
   },
 
+  eyeIcon: {
+    marginLeft:wp('-8%')
+  },
+  
+
+  label: {
+    fontSize: hp('1.5%'),
+  },
+
+  labelWrapper: { padding: 2 },
+
+  messageContainer: {
+    marginTop: hp('0.5%'),
+    justifyContent: 'center',
+  },
+
+  messageText: {
+    fontSize: hp('1.3%'),
+  },
+
   errorText: {
     color: COLORS.RED,
-    fontSize: 12,
-    marginTop: 6,
-    paddingLeft: 4,
-    fontFamily: 'PlayfairDisplay-Medium',
   },
 
-  multiLine: {
-    height: 120,
-    textAlignVertical: 'top',
-    paddingTop: 12,
+  helperText: {
+    color: COLORS.TEXT_TERTIARY,
   },
 
-  eyeIcon: { position: 'absolute', right: 10, top: 15 },
+  inputRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
 });

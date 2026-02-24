@@ -1,22 +1,26 @@
 import { StyleSheet } from 'react-native';
+import {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp,
+} from 'react-native-responsive-screen';
 
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
-    width: '100%',
-    padding: 10,
-    marginTop: 30,
+    width: wp('100%'),
+    paddingHorizontal: 10,
+    marginTop: hp('7%'),
   },
 
-  avatar: { borderRadius: 100, height: 200, width: 200 },
+  avatar: { borderRadius: 100, height: hp('17%'), width: wp('37%') },
 
   avatarWrapper: { padding: 20 },
 
   avatarPlaceholder: {
-    height: 200,
-    width: 200,
-    borderWidth: 1,
+    height: hp('17%'),
+    width: wp('37%'),
+    borderWidth: 1.5,
     borderRadius: 100,
     justifyContent: 'center',
     alignItems: 'center',
@@ -24,10 +28,10 @@ export const styles = StyleSheet.create({
 
   title: {
     fontFamily: 'PlayfairDisplay-Medium',
-    fontSize: 50,
+    fontSize: hp('6%'),
   },
 
-  titleWrapper: { position: 'relative', right: 100 },
+  titleWrapper: { position: 'relative', left: wp('-25%') },
 
   alreadyHaveAccount: {
     padding: 10,
@@ -37,13 +41,11 @@ export const styles = StyleSheet.create({
   },
 
   accountExistText: {
-    fontFamily: 'PlayfairDisplay-Medium',
-    fontSize: 15,
+    fontSize: hp('2%'),
   },
 
   loginButton: {
-    borderWidth: 1,
-    borderRadius: 20,
-    paddingHorizontal: 5,
+    fontWeight: 'bold',
+    textDecorationLine: 'underline',
   },
 });

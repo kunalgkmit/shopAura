@@ -6,7 +6,7 @@ import { styles } from './styles';
 export default function CustomButton({
   title,
   onPress,
-  isPending,
+  showLoading,
   isLogout,
   isClearFilter,
 }: ButtonProps) {
@@ -18,9 +18,9 @@ export default function CustomButton({
         isClearFilter && styles.clearFilter,
       ]}
       onPress={onPress}
-      disabled={isPending}
+      disabled={showLoading}
     >
-      {isPending ? (
+      {showLoading ? (
         <ActivityIndicator color={COLORS.BG_SURFACE} />
       ) : (
         <Text

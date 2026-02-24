@@ -22,11 +22,15 @@ export const uploadFileService = async (image: Asset) => {
     name: image.fileName,
   });
 
-  const response = await axiosInstance.post('/files/upload', formData, {
-    headers: {
-      'Content-Type': 'multipart/form-data',
+  const response = await axiosInstance.post(
+    ENDPOINTS.AUTH.AVATAR_UPLOAD,
+    formData,
+    {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
     },
-  });
+  );
 
-  return response.data;
+  return response.data.location;
 };

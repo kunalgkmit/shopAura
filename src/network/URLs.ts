@@ -3,5 +3,6 @@ export const ENDPOINTS = {
     USER: '/users/',
     LOGIN: '/auth/login',
     PROFILE: '/auth/profile',
+    AVATAR_UPLOAD: '/files/upload',
   },
 };

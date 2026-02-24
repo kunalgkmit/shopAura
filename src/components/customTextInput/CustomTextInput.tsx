@@ -13,11 +13,9 @@ export default function CustomTextInput({
   editable,
   autoCapitalize = 'none',
   secureTextEntry,
-  onPress,
-  keyboardType,
-  maxLength,
-  multiLine,
   isPassword,
+  label,
+  helperText,
 }: CustomTextInputProps) {
   const [passwordVisible, setPasswordVisible] = useState(secureTextEntry);
 
@@ -27,26 +25,43 @@ export default function CustomTextInput({
   return (
     <View style={styles.container}>
       <View style={styles.inputContainer}>
-        <TextInput
-          style={[styles.input, error && styles.inputError]}
-          placeholder={placeholder}
-          placeholderTextColor={COLORS.TEXT_TERTIARY}
-          value={value}
-          onChangeText={onChangeText}
-          autoCapitalize={autoCapitalize}
-          editable={editable}
-          secureTextEntry={passwordVisible}
-        />
-        {error ? <Text style={styles.errorText}>{error}</Text> : null}
+        {label ? (
+          <View style={styles.labelWrapper}>
+            <Text style={styles.label}>{label}</Text>
+          </View>
+        ) : null}
+        <View style={styles.inputRow}>
+          <TextInput
+            style={[styles.input, error && styles.inputError]}
+            placeholder={placeholder}
+            placeholderTextColor={COLORS.TEXT_TERTIARY}
+            value={value}
+            onChangeText={onChangeText}
+            autoCapitalize={autoCapitalize}
+            editable={editable}
+            secureTextEntry={passwordVisible}
+          />
+          {isPassword ? (
+            <TouchableOpacity
+              style={styles.eyeIcon}
+              onPress={handlePasswordVisible}
+            >
+              <Ionicons name={passwordVisible ? 'eye-off' : 'eye'} size={22} />
+            </TouchableOpacity>
+          ) : null}
+        </View>
+
+        <View style={styles.messageContainer}>
+          <Text
+            style={[
+              styles.messageText,
+              error ? styles.errorText : styles.helperText,
+            ]}
+          >
+            {error || helperText || ''}
+          </Text>
+        </View>
       </View>
-      {isPassword ? (
-        <TouchableOpacity
-          style={styles.eyeIcon}
-          onPress={handlePasswordVisible}
-        >
-          <Ionicons name={passwordVisible ? 'eye-off' : 'eye'} size={22} />
-        </TouchableOpacity>
-      ) : null}
     </View>
   );
 }
