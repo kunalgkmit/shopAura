@@ -22,6 +22,7 @@ import { useUserSignUp } from '../hooks/useUserSignUp';
 import CustomButton from '../customButton';
 import { COLORS } from '../../constants/colors';
 import { styles } from './styles';
+import { APP_INFO } from '../../constants/constants';
 
 export default function SignUpForm() {
   const [name, setName] = useState('');
@@ -132,7 +133,7 @@ export default function SignUpForm() {
   return (
     <View style={styles.container}>
       <View style={styles.titleWrapper}>
-        <Text style={styles.title}>Sign Up</Text>
+        <Text style={styles.title}>{APP_INFO.SIGN_UP}</Text>
       </View>
       <View style={styles.avatarWrapper}>
         <TouchableOpacity
@@ -174,7 +175,7 @@ export default function SignUpForm() {
         error={errors.passwordError}
         secureTextEntry={true}
         isPassword={true}
-        helperText="*Min. 8 characters, 1 uppercase, 1 lowercase & 1 number"
+        helperText="Min. 8 characters, 1 uppercase, 1 lowercase & 1 number"
       />
       <CustomTextInput
         placeholder="Confirm Password"
@@ -191,7 +192,9 @@ export default function SignUpForm() {
         showLoading={signUpPending}
       />
       <View style={styles.alreadyHaveAccount}>
-        <Text style={styles.accountExistText}>Already having an account?</Text>
+        <Text style={styles.accountExistText}>
+          {APP_INFO.ALREADY_HAVING_ACCOUNT}
+        </Text>
         <TouchableOpacity>
           <Text style={[styles.accountExistText, styles.loginButton]}>
             Login
