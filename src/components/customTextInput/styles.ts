@@ -1,5 +1,9 @@
 import { StyleSheet } from 'react-native';
 import { COLORS } from '../../constants/colors';
+import {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp,
+} from 'react-native-responsive-screen';
 
 export const styles = StyleSheet.create({
   container: {
@@ -8,15 +12,15 @@ export const styles = StyleSheet.create({
   },
   inputContainer: {
     width: '100%',
-    marginBottom: 10,
+    marginBottom: hp('1%'),
   },
 
   input: {
-    height: 52,
+    height: hp('5%'),
     backgroundColor: COLORS.BG_SURFACE,
     borderRadius: 12,
     paddingHorizontal: 16,
-    fontSize: 16,
+    fontSize: hp('2%'),
     borderWidth: 1,
     borderColor: COLORS.BORDER,
   },
@@ -32,7 +36,7 @@ export const styles = StyleSheet.create({
     paddingTop: 12,
   },
 
-  eyeIcon: { position: 'absolute', right: 10, top: 33 },
+  eyeIcon: { position: 'absolute', right: hp('2%'), top: hp('3.5%') },
 
   label: {
     fontSize: 14,
@@ -41,12 +45,12 @@ export const styles = StyleSheet.create({
   labelWrapper: { padding: 2 },
 
   messageContainer: {
-    marginTop: 4,
+    marginTop: hp('0.5%'),
     justifyContent: 'center',
   },
 
   messageText: {
-    fontSize: 12,
+    fontSize: hp('1.3%'),
   },
 
   errorText: {
