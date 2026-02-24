@@ -8,7 +8,7 @@ export const styles = StyleSheet.create({
   },
   inputContainer: {
     width: '100%',
-    marginBottom: 20,
+    marginBottom: 10,
   },
 
   input: {
@@ -19,20 +19,11 @@ export const styles = StyleSheet.create({
     fontSize: 16,
     borderWidth: 1,
     borderColor: COLORS.BORDER,
-    fontFamily: 'PlayfairDisplay-Medium',
   },
 
   inputError: {
     borderColor: COLORS.RED,
     borderWidth: 1.5,
-  },
-
-  errorText: {
-    color: COLORS.RED,
-    fontSize: 12,
-    marginTop: 6,
-    paddingLeft: 4,
-    fontFamily: 'PlayfairDisplay-Medium',
   },
 
   multiLine: {
@@ -41,5 +32,28 @@ export const styles = StyleSheet.create({
     paddingTop: 12,
   },
 
-  eyeIcon: { position: 'absolute', right: 10, top: 15 },
+  eyeIcon: { position: 'absolute', right: 10, top: 33 },
+
+  label: {
+    fontSize: 14,
+  },
+
+  labelWrapper: { padding: 2 },
+
+  messageContainer: {
+    marginTop: 4,
+    justifyContent: 'center',
+  },
+
+  messageText: {
+    fontSize: 12,
+  },
+
+  errorText: {
+    color: COLORS.RED,
+  },
+
+  helperText: {
+    color: COLORS.TEXT_SECONDARY,
+  },
 });

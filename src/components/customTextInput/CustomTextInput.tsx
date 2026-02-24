@@ -18,6 +18,8 @@ export default function CustomTextInput({
   maxLength,
   multiLine,
   isPassword,
+  label,
+  helperText,
 }: CustomTextInputProps) {
   const [passwordVisible, setPasswordVisible] = useState(secureTextEntry);
 
@@ -27,6 +29,11 @@ export default function CustomTextInput({
   return (
     <View style={styles.container}>
       <View style={styles.inputContainer}>
+        {label ? (
+          <View style={styles.labelWrapper}>
+            <Text style={styles.label}>{label}</Text>
+          </View>
+        ) : null}
         <TextInput
           style={[styles.input, error && styles.inputError]}
           placeholder={placeholder}
@@ -37,7 +44,16 @@ export default function CustomTextInput({
           editable={editable}
           secureTextEntry={passwordVisible}
         />
-        {error ? <Text style={styles.errorText}>{error}</Text> : null}
+        <View style={styles.messageContainer}>
+          <Text
+            style={[
+              styles.messageText,
+              error ? styles.errorText : styles.helperText,
+            ]}
+          >
+            {error || helperText || ''}
+          </Text>
+        </View>
       </View>
       {isPassword ? (
         <TouchableOpacity

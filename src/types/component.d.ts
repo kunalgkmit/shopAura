@@ -11,6 +11,8 @@ interface CustomTextInputProps {
   maxLength?: number;
   multiLine?: boolean;
   isPassword?: boolean;
+  label?: string;
+  helperText?: string;
 }
 
 interface ButtonProps {
