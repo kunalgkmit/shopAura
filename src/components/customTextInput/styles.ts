@@ -23,6 +23,7 @@ export const styles = StyleSheet.create({
     fontSize: hp('2%'),
     borderWidth: 1,
     borderColor: COLORS.BORDER,
+    width:'100%'
   },
 
   inputError: {
@@ -30,16 +31,13 @@ export const styles = StyleSheet.create({
     borderWidth: 1.5,
   },
 
-  multiLine: {
-    height: 120,
-    textAlignVertical: 'top',
-    paddingTop: 12,
+  eyeIcon: {
+    marginLeft:wp('-8%')
   },
-
-  eyeIcon: { position: 'absolute', right: hp('2%'), top: hp('3.5%') },
+  
 
   label: {
-    fontSize: 14,
+    fontSize: hp('1.5%'),
   },
 
   labelWrapper: { padding: 2 },
@@ -58,6 +56,11 @@ export const styles = StyleSheet.create({
   },
 
   helperText: {
-    color: COLORS.TEXT_SECONDARY,
+    color: COLORS.TEXT_TERTIARY,
+  },
+
+  inputRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
   },
 });
