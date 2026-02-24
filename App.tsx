@@ -3,7 +3,7 @@ import { Provider } from 'react-redux';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { PersistGate } from 'redux-persist/integration/react';
 import { persistor, store } from '@store/store';
-import AuthScreen from '@screens/auth/Auth';
+import Routes from '@navigation/Routes';
 
 const queryClient = new QueryClient();
 
@@ -13,7 +13,7 @@ function App() {
       <QueryClientProvider client={queryClient}>
         <Provider store={store}>
           <PersistGate persistor={persistor}>
-            <AuthScreen />
+            <Routes />
           </PersistGate>
         </Provider>
       </QueryClientProvider>
