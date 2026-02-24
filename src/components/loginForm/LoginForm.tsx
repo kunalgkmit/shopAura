@@ -22,21 +22,34 @@ export default function LoginForm() {
   const verifyEmail = (value: string) => {
     setEmail(value);
     const emailError = validateEmail(value);
-
-    setErrors(prev => ({
-      ...prev,
-      emailError,
-    }));
+    if (emailError) {
+      setErrors(prev => ({
+        ...prev,
+        emailError,
+      }));
+    } else {
+      setErrors(prev => ({
+        ...prev,
+        emailError: '',
+      }));
+    }
   };
 
   const verifyPassword = (pwd: string) => {
     setPassword(pwd);
     const passwordError = validatePassword(pwd);
 
-    setErrors(prev => ({
-      ...prev,
-      passwordError,
-    }));
+    if (passwordError) {
+      setErrors(prev => ({
+        ...prev,
+        passwordError,
+      }));
+    } else {
+      setErrors(prev => ({
+        ...prev,
+        passwordError: '',
+      }));
+    }
   };
 
   const handleSubmit = () => {
@@ -50,8 +63,8 @@ export default function LoginForm() {
 
     const hasError = Object.values(updatedErrors).some(item => item.length > 0);
 
-    setErrors(updatedErrors);
     if (hasError) {
+      setErrors(updatedErrors);
       return '';
     }
     loginMutate({ email, password });
