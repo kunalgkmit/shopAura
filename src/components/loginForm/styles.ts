@@ -1,4 +1,8 @@
 import { StyleSheet } from 'react-native';
+import {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp,
+} from 'react-native-responsive-screen';
 
 export const styles = StyleSheet.create({
   container: {
@@ -7,30 +11,20 @@ export const styles = StyleSheet.create({
     justifyContent: 'center',
     width: '100%',
     padding: 10,
-    marginTop: 30,
-  },
-
-  avatar: { borderRadius: 100, height: 200, width: 200 },
-
-  avatarWrapper: { padding: 20 },
-
-  avatarPlaceholder: {
-    height: 200,
-    width: 200,
-    borderWidth: 1,
-    borderRadius: 100,
-    justifyContent: 'center',
-    alignItems: 'center',
   },
 
   title: {
     fontFamily: 'PlayfairDisplay-Medium',
-    fontSize: 50,
+    fontSize: hp('6%'),
   },
 
-  titleWrapper: { position: 'relative', right: 120, marginVertical: 40 },
+  titleWrapper: {
+    position: 'relative',
+    left: wp('-30%'),
+    marginVertical: wp('10%'),
+  },
 
-  alreadyHaveAccount: {
+  doNotHaveAccount: {
     padding: 10,
     flexDirection: 'row',
     gap: 5,
@@ -38,8 +32,7 @@ export const styles = StyleSheet.create({
   },
 
   signUp: {
-    fontFamily: 'PlayfairDisplay-Medium',
-    fontSize: 15,
+    fontSize: hp('2%'),
   },
 
   signUpButton: {
@@ -48,8 +41,12 @@ export const styles = StyleSheet.create({
     paddingHorizontal: 5,
   },
 
-  welcomeText: {
-    fontFamily: 'CormorantGaramond-Italic',
-    fontSize: 50,
+  accountExistText: {
+    fontSize: hp('2%'),
+  },
+
+  loginButton: {
+    fontWeight: 'bold',
+    textDecorationLine: 'underline',
   },
 });

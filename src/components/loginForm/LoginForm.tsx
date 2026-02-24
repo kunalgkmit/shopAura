@@ -6,9 +6,10 @@ import CustomTextInput from '../customTextInput';
 import { validateEmail, validatePassword } from '../../utils/helpers';
 import CustomButton from '../customButton';
 import { useUserLogin } from '../hooks/useUserLogin';
+import { HandleLoginProps } from '../../types/auth';
 import { styles } from './styles';
 
-export default function SignUpForm() {
+export default function LoginForm({ handleLogin }: HandleLoginProps) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -54,18 +55,11 @@ export default function SignUpForm() {
     if (hasError) {
       return '';
     }
-    loginMutate(
-      { email, password },
-      {
-        onSuccess: data => console.log('DONE______>>', data),
-        onError: error => console.log(error),
-      },
-    );
+    loginMutate({ email, password });
   };
 
   return (
     <View style={styles.container}>
-      <Text style={styles.welcomeText}>Welcome Back</Text>
       <View style={styles.titleWrapper}>
         <Text style={styles.title}>Login</Text>
       </View>
@@ -86,13 +80,15 @@ export default function SignUpForm() {
       <CustomButton
         title="Login"
         onPress={handleSubmit}
-        isPending={isPending}
+        showLoading={isPending}
       />
 
-      <View style={styles.alreadyHaveAccount}>
+      <View style={styles.doNotHaveAccount}>
         <Text style={styles.signUp}>Didn't have account?</Text>
-        <TouchableOpacity style={styles.signUpButton}>
-          <Text style={styles.signUp}>Sign Up</Text>
+        <TouchableOpacity onPress={handleLogin}>
+          <Text style={[styles.accountExistText, styles.loginButton]}>
+            Sign Up
+          </Text>
         </TouchableOpacity>
       </View>
     </View>

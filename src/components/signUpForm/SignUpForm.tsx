@@ -21,10 +21,11 @@ import { useUploadAvatar } from '../hooks/useAvatar';
 import { useUserSignUp } from '../hooks/useUserSignUp';
 import CustomButton from '../customButton';
 import { COLORS } from '../../constants/colors';
-import { styles } from './styles';
 import { APP_INFO } from '../../constants/constants';
+import { HandleLoginProps } from '../../types/auth';
+import { styles } from './styles';
 
-export default function SignUpForm() {
+export default function SignUpForm({ handleLogin }: HandleLoginProps) {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -195,7 +196,7 @@ export default function SignUpForm() {
         <Text style={styles.accountExistText}>
           {APP_INFO.ALREADY_HAVING_ACCOUNT}
         </Text>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={handleLogin}>
           <Text style={[styles.accountExistText, styles.loginButton]}>
             Login
           </Text>

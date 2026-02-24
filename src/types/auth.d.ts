@@ -9,3 +9,7 @@ export interface LoginProps {
   email: string;
   password: string;
 }
+
+export interface HandleLoginProps {
+  handleLogin: () => void;
+}
