@@ -21,11 +21,9 @@ import { useUploadAvatar } from '../hooks/useAvatar';
 import { useUserSignUp } from '../hooks/useUserSignUp';
 import CustomButton from '../customButton';
 import { COLORS } from '../../constants/colors';
-import { APP_INFO } from '../../constants/constants';
-import { HandleLoginProps } from '../../types/auth';
 import { styles } from './styles';
 
-export default function SignUpForm({ handleLogin }: HandleLoginProps) {
+export default function SignUpForm() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -133,9 +131,6 @@ export default function SignUpForm({ handleLogin }: HandleLoginProps) {
 
   return (
     <View style={styles.container}>
-      <View style={styles.titleWrapper}>
-        <Text style={styles.title}>{APP_INFO.SIGN_UP}</Text>
-      </View>
       <View style={styles.avatarWrapper}>
         <TouchableOpacity
           style={[
@@ -192,16 +187,6 @@ export default function SignUpForm({ handleLogin }: HandleLoginProps) {
         onPress={handleSubmit}
         showLoading={signUpPending}
       />
-      <View style={styles.alreadyHaveAccount}>
-        <Text style={styles.accountExistText}>
-          {APP_INFO.ALREADY_HAVING_ACCOUNT}
-        </Text>
-        <TouchableOpacity onPress={handleLogin}>
-          <Text style={[styles.accountExistText, styles.loginButton]}>
-            Login
-          </Text>
-        </TouchableOpacity>
-      </View>
     </View>
   );
 }

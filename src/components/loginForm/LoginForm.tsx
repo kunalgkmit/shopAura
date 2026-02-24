@@ -1,16 +1,14 @@
 import { useState } from 'react';
 
-import { Text, TouchableOpacity, View } from 'react-native';
+import { View } from 'react-native';
 
 import CustomTextInput from '../customTextInput';
 import { validateEmail, validatePassword } from '../../utils/helpers';
 import CustomButton from '../customButton';
 import { useUserLogin } from '../hooks/useUserLogin';
-import { HandleLoginProps } from '../../types/auth';
-import { APP_INFO } from '../../constants/constants';
 import { styles } from './styles';
 
-export default function LoginForm({ handleLogin }: HandleLoginProps) {
+export default function LoginForm() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -61,9 +59,6 @@ export default function LoginForm({ handleLogin }: HandleLoginProps) {
 
   return (
     <View style={styles.container}>
-      <View style={styles.titleWrapper}>
-        <Text style={styles.title}>{APP_INFO.LOGIN}</Text>
-      </View>
       <CustomTextInput
         placeholder="Enter Email"
         value={email}
@@ -83,15 +78,6 @@ export default function LoginForm({ handleLogin }: HandleLoginProps) {
         onPress={handleSubmit}
         showLoading={isPending}
       />
-
-      <View style={styles.doNotHaveAccount}>
-        <Text style={styles.signUp}>{APP_INFO.DO_NOT_HAVE_ACCOUNT}</Text>
-        <TouchableOpacity onPress={handleLogin}>
-          <Text style={[styles.accountExistText, styles.loginButton]}>
-            {APP_INFO.SIGN_UP}
-          </Text>
-        </TouchableOpacity>
-      </View>
     </View>
   );
 }
