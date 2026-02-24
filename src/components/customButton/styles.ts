@@ -3,7 +3,8 @@ import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
-import { COLORS } from '../../constants/colors';
+
+import { COLORS } from '@constants/colors';
 
 export const styles = StyleSheet.create({
   button: {

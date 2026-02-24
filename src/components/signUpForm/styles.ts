@@ -6,11 +6,9 @@ import {
 
 export const styles = StyleSheet.create({
   container: {
-    flex: 1,
     alignItems: 'center',
     width: wp('100%'),
     paddingHorizontal: 10,
-    marginTop: hp('7%'),
   },
 
   avatar: { borderRadius: 100, height: hp('17%'), width: wp('37%') },
@@ -24,28 +22,5 @@ export const styles = StyleSheet.create({
     borderRadius: 100,
     justifyContent: 'center',
     alignItems: 'center',
-  },
-
-  title: {
-    fontFamily: 'PlayfairDisplay-Medium',
-    fontSize: hp('6%'),
-  },
-
-  titleWrapper: { position: 'relative', left: wp('-25%') },
-
-  alreadyHaveAccount: {
-    padding: 10,
-    flexDirection: 'row',
-    gap: 5,
-    alignItems: 'center',
-  },
-
-  accountExistText: {
-    fontSize: hp('2%'),
-  },
-
-  loginButton: {
-    fontWeight: 'bold',
-    textDecorationLine: 'underline',
   },
 });

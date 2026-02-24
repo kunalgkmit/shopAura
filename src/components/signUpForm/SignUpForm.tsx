@@ -1,28 +1,21 @@
 import { useState } from 'react';
 
-import {
-  ActivityIndicator,
-  Image,
-  Text,
-  TouchableOpacity,
-  View,
-} from 'react-native';
+import { ActivityIndicator, Image, TouchableOpacity, View } from 'react-native';
 import { launchImageLibrary } from 'react-native-image-picker';
 import Ionicons from '@react-native-vector-icons/ionicons';
 
-import CustomTextInput from '../customTextInput';
+import { useUploadAvatar } from '@hooks/useAvatar';
+import { useUserSignUp } from '@hooks/useUserSignUp';
+import CustomTextInput from '@components/customTextInput';
+import CustomButton from '@components/customButton';
 import {
   validateConfirmPassword,
   validateEmail,
   validatePassword,
   validateUserName,
-} from '../../utils/helpers';
-import { useUploadAvatar } from '../hooks/useAvatar';
-import { useUserSignUp } from '../hooks/useUserSignUp';
-import CustomButton from '../customButton';
-import { COLORS } from '../../constants/colors';
+} from '@utils/helpers';
+import { COLORS } from '@constants/colors';
 import { styles } from './styles';
-import { APP_INFO } from '../../constants/constants';
 
 export default function SignUpForm() {
   const [name, setName] = useState('');
@@ -132,9 +125,6 @@ export default function SignUpForm() {
 
   return (
     <View style={styles.container}>
-      <View style={styles.titleWrapper}>
-        <Text style={styles.title}>{APP_INFO.SIGN_UP}</Text>
-      </View>
       <View style={styles.avatarWrapper}>
         <TouchableOpacity
           style={[
@@ -174,7 +164,6 @@ export default function SignUpForm() {
         onChangeText={verifyPassword}
         error={errors.passwordError}
         secureTextEntry={true}
-        isPassword={true}
         helperText="Min. 8 characters, 1 uppercase, 1 lowercase & 1 number"
       />
       <CustomTextInput
@@ -184,23 +173,12 @@ export default function SignUpForm() {
         onChangeText={verifyConfirmPassword}
         error={errors.confirmPasswordError}
         secureTextEntry={true}
-        isPassword={true}
       />
       <CustomButton
         title="Create Account"
         onPress={handleSubmit}
         showLoading={signUpPending}
       />
-      <View style={styles.alreadyHaveAccount}>
-        <Text style={styles.accountExistText}>
-          {APP_INFO.ALREADY_HAVING_ACCOUNT}
-        </Text>
-        <TouchableOpacity>
-          <Text style={[styles.accountExistText, styles.loginButton]}>
-            Login
-          </Text>
-        </TouchableOpacity>
-      </View>
     </View>
   );
 }

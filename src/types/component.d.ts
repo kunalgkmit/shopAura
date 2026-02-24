@@ -6,7 +6,6 @@ interface CustomTextInputProps {
   editable?: boolean;
   autoCapitalize?: 'none';
   secureTextEntry?: boolean;
-  isPassword?: boolean;
   label?: string;
   helperText?: string;
 }
