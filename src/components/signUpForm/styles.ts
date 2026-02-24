@@ -6,11 +6,9 @@ import {
 
 export const styles = StyleSheet.create({
   container: {
-    flex: 1,
     alignItems: 'center',
     width: wp('100%'),
     paddingHorizontal: 10,
-    marginTop: hp('7%'),
   },
 
   avatar: { borderRadius: 100, height: hp('17%'), width: wp('37%') },
