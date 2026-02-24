@@ -17,7 +17,6 @@ export const styles = StyleSheet.create({
   },
 
   titleWrapper: {
-    left: wp('2%'),
     marginVertical: wp('10%'),
   },
 

@@ -1,15 +1,16 @@
 import { useState } from 'react';
 import { Text, TouchableOpacity, View } from 'react-native';
-import LoginForm from '../../components/loginForm';
-import SignUpForm from '../../components/signUpForm';
 import { styles } from './styles';
 import { APP_INFO } from '../../constants/constants';
+import SignUpForm from '@components/signUpForm';
+import LoginForm from '@components/loginForm/LoginForm';
 
 export default function AuthScreen() {
   const [isLogin, setIsLogin] = useState(true);
-  const handleLogin = () => {
+  const handleToggleLogin = () => {
     setIsLogin(prev => !prev);
   };
+
   return (
     <View style={styles.container}>
       <View style={styles.titleWrapper}>
@@ -25,7 +26,7 @@ export default function AuthScreen() {
             ? APP_INFO.DO_NOT_HAVE_ACCOUNT
             : APP_INFO.ALREADY_HAVING_ACCOUNT}
         </Text>
-        <TouchableOpacity onPress={handleLogin}>
+        <TouchableOpacity onPress={handleToggleLogin}>
           <Text style={[styles.isLogin, styles.toggleButton]}>
             {isLogin ? APP_INFO.SIGN_UP : APP_INFO.LOGIN}
           </Text>
