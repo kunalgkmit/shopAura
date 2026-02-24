@@ -7,6 +7,7 @@ import { validateEmail, validatePassword } from '../../utils/helpers';
 import CustomButton from '../customButton';
 import { useUserLogin } from '../hooks/useUserLogin';
 import { HandleLoginProps } from '../../types/auth';
+import { APP_INFO } from '../../constants/constants';
 import { styles } from './styles';
 
 export default function LoginForm({ handleLogin }: HandleLoginProps) {
@@ -61,7 +62,7 @@ export default function LoginForm({ handleLogin }: HandleLoginProps) {
   return (
     <View style={styles.container}>
       <View style={styles.titleWrapper}>
-        <Text style={styles.title}>Login</Text>
+        <Text style={styles.title}>{APP_INFO.LOGIN}</Text>
       </View>
       <CustomTextInput
         placeholder="Enter Email"
@@ -84,10 +85,10 @@ export default function LoginForm({ handleLogin }: HandleLoginProps) {
       />
 
       <View style={styles.doNotHaveAccount}>
-        <Text style={styles.signUp}>Didn't have account?</Text>
+        <Text style={styles.signUp}>{APP_INFO.DO_NOT_HAVE_ACCOUNT}</Text>
         <TouchableOpacity onPress={handleLogin}>
           <Text style={[styles.accountExistText, styles.loginButton]}>
-            Sign Up
+            {APP_INFO.SIGN_UP}
           </Text>
         </TouchableOpacity>
       </View>
