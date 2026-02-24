@@ -6,10 +6,6 @@ interface CustomTextInputProps {
   editable?: boolean;
   autoCapitalize?: 'none';
   secureTextEntry?: boolean;
-  onPress?: () => void;
-  keyboardType?: KeyboardTypeOptions;
-  maxLength?: number;
-  multiLine?: boolean;
   isPassword?: boolean;
   label?: string;
   helperText?: string;
@@ -18,7 +14,7 @@ interface CustomTextInputProps {
 interface ButtonProps {
   title: string;
   onPress: () => void;
-  isPending?: boolean;
+  showLoading?: boolean;
   isLogout?: boolean;
   isClearFilter?: boolean;
 }

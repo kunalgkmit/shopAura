@@ -188,7 +188,7 @@ export default function SignUpForm() {
       <CustomButton
         title="Create Account"
         onPress={handleSubmit}
-        isPending={signUpPending}
+        showLoading={signUpPending}
       />
       <View style={styles.alreadyHaveAccount}>
         <Text style={styles.accountExistText}>Already having an account?</Text>
