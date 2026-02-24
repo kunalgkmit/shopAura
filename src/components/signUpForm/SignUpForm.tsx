@@ -4,8 +4,8 @@ import { ActivityIndicator, Image, TouchableOpacity, View } from 'react-native';
 import { launchImageLibrary } from 'react-native-image-picker';
 import Ionicons from '@react-native-vector-icons/ionicons';
 
-import { useUploadAvatar } from '@components/hooks/useAvatar';
-import { useUserSignUp } from '@components/hooks/useUserSignUp';
+import { useUploadAvatar } from '@hooks/useAvatar';
+import { useUserSignUp } from '@hooks/useUserSignUp';
 import CustomTextInput from '@components/customTextInput';
 import CustomButton from '@components/customButton';
 import {

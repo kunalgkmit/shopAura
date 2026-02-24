@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { View } from 'react-native';
 
 import CustomTextInput from '@components/customTextInput';
-import { useUserLogin } from '@components/hooks/useUserLogin';
+import { useUserLogin } from '@hooks/useUserLogin';
 import CustomButton from '@components/customButton';
 import { validateEmail, validatePassword } from '@utils/helpers';
 
