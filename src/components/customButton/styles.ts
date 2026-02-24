@@ -14,7 +14,6 @@ export const styles = StyleSheet.create({
   buttonText: {
     color: COLORS.TEXT_INVERSE,
     fontSize: 18,
-    fontFamily: 'PlayfairDisplay-Medium',
   },
 
   clearFilter: {

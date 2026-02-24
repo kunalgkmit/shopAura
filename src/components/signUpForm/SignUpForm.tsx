@@ -23,7 +23,6 @@ import CustomButton from '../customButton';
 import { COLORS } from '../../constants/colors';
 import { styles } from './styles';
 
-
 export default function SignUpForm() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -154,27 +153,32 @@ export default function SignUpForm() {
       </View>
 
       <CustomTextInput
+        label="Full Name"
         placeholder="Enter Full Name"
         value={name}
         onChangeText={verifyFullName}
         error={errors.fullNameError}
       />
       <CustomTextInput
+        label="Email"
         placeholder="Enter Email"
         value={email}
         onChangeText={verifyEmail}
         error={errors.emailError}
       />
       <CustomTextInput
+        label="Password"
         placeholder="Enter Password"
         value={password}
         onChangeText={verifyPassword}
         error={errors.passwordError}
         secureTextEntry={true}
         isPassword={true}
+        helperText="*Min. 8 characters, 1 uppercase, 1 lowercase & 1 number"
       />
       <CustomTextInput
         placeholder="Confirm Password"
+        label="Confirm Password"
         value={confirmPassword}
         onChangeText={verifyConfirmPassword}
         error={errors.confirmPasswordError}
@@ -188,8 +192,10 @@ export default function SignUpForm() {
       />
       <View style={styles.alreadyHaveAccount}>
         <Text style={styles.accountExistText}>Already having an account?</Text>
-        <TouchableOpacity style={styles.loginButton}>
-          <Text style={styles.accountExistText}>Login</Text>
+        <TouchableOpacity>
+          <Text style={[styles.accountExistText, styles.loginButton]}>
+            Login
+          </Text>
         </TouchableOpacity>
       </View>
     </View>

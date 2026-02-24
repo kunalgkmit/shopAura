@@ -5,17 +5,18 @@ export const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     width: '100%',
-    padding: 10,
+    paddingHorizontal: 10,
     marginTop: 30,
+    paddingTop: 20,
   },
 
-  avatar: { borderRadius: 100, height: 200, width: 200 },
+  avatar: { borderRadius: 100, height: 150, width: 150 },
 
   avatarWrapper: { padding: 20 },
 
   avatarPlaceholder: {
-    height: 200,
-    width: 200,
+    height: 150,
+    width: 150,
     borderWidth: 1,
     borderRadius: 100,
     justifyContent: 'center',
@@ -37,13 +38,11 @@ export const styles = StyleSheet.create({
   },
 
   accountExistText: {
-    fontFamily: 'PlayfairDisplay-Medium',
     fontSize: 15,
   },
 
   loginButton: {
-    borderWidth: 1,
-    borderRadius: 20,
-    paddingHorizontal: 5,
+    fontWeight: 'bold',
+    textDecorationLine: 'underline',
   },
 });
