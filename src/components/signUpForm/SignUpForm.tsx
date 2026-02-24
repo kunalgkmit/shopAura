@@ -1,12 +1,6 @@
 import { useState } from 'react';
 
-import {
-  ActivityIndicator,
-  Image,
-  Text,
-  TouchableOpacity,
-  View,
-} from 'react-native';
+import { ActivityIndicator, Image, TouchableOpacity, View } from 'react-native';
 import { launchImageLibrary } from 'react-native-image-picker';
 import Ionicons from '@react-native-vector-icons/ionicons';
 
