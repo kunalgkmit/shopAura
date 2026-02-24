@@ -1,11 +1,11 @@
 import { useState } from 'react';
-
 import { View } from 'react-native';
 
-import CustomTextInput from '../customTextInput';
-import { validateEmail, validatePassword } from '../../utils/helpers';
-import CustomButton from '../customButton';
-import { useUserLogin } from '../hooks/useUserLogin';
+import CustomTextInput from '@components/customTextInput';
+import { useUserLogin } from '@components/hooks/useUserLogin';
+import CustomButton from '@components/customButton';
+import { validateEmail, validatePassword } from '@utils/helpers';
+
 import { styles } from './styles';
 
 export default function LoginForm() {

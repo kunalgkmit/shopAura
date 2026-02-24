@@ -4,17 +4,17 @@ import { ActivityIndicator, Image, TouchableOpacity, View } from 'react-native';
 import { launchImageLibrary } from 'react-native-image-picker';
 import Ionicons from '@react-native-vector-icons/ionicons';
 
-import CustomTextInput from '../customTextInput';
+import { useUploadAvatar } from '@components/hooks/useAvatar';
+import { useUserSignUp } from '@components/hooks/useUserSignUp';
+import CustomTextInput from '@components/customTextInput';
+import CustomButton from '@components/customButton';
 import {
   validateConfirmPassword,
   validateEmail,
   validatePassword,
   validateUserName,
-} from '../../utils/helpers';
-import { useUploadAvatar } from '../hooks/useAvatar';
-import { useUserSignUp } from '../hooks/useUserSignUp';
-import CustomButton from '../customButton';
-import { COLORS } from '../../constants/colors';
+} from '@utils/helpers';
+import { COLORS } from '@constants/colors';
 import { styles } from './styles';
 
 export default function SignUpForm() {

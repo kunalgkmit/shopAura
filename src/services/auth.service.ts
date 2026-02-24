@@ -1,7 +1,6 @@
 import { Asset } from 'react-native-image-picker';
-import { axiosInstance } from '../network/axiosInstance';
-import { ENDPOINTS } from '../network/URLs';
-import { LoginProps, SignUpProps } from '../types/auth';
+import { axiosInstance } from '@network/axiosInstance';
+import { ENDPOINTS } from '@network/URLs';
 
 export const userSignUp = async (userData: SignUpProps) => {
   const response = await axiosInstance.post(ENDPOINTS.AUTH.USER, userData);

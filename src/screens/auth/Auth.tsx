@@ -1,9 +1,11 @@
 import { useState } from 'react';
 import { Text, TouchableOpacity, View } from 'react-native';
-import { styles } from './styles';
-import { APP_INFO } from '../../constants/constants';
+
 import SignUpForm from '@components/signUpForm';
 import LoginForm from '@components/loginForm/LoginForm';
+import { APP_INFO } from '@constants/constants';
+
+import { styles } from './styles';
 
 export default function AuthScreen() {
   const [isLogin, setIsLogin] = useState(true);
