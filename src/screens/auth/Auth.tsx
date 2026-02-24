@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Text, TouchableOpacity, View } from 'react-native';
 
 import SignUpForm from '@components/signUpForm';
-import LoginForm from '@components/loginForm/LoginForm';
+import LoginForm from '@components/loginForm';
 import { APP_INFO } from '@constants/constants';
 
 import { styles } from './styles';

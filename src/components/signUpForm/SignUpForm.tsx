@@ -164,7 +164,6 @@ export default function SignUpForm() {
         onChangeText={verifyPassword}
         error={errors.passwordError}
         secureTextEntry={true}
-        isPassword={true}
         helperText="Min. 8 characters, 1 uppercase, 1 lowercase & 1 number"
       />
       <CustomTextInput
@@ -174,7 +173,6 @@ export default function SignUpForm() {
         onChangeText={verifyConfirmPassword}
         error={errors.confirmPasswordError}
         secureTextEntry={true}
-        isPassword={true}
       />
       <CustomButton
         title="Create Account"

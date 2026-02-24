@@ -84,7 +84,6 @@ export default function LoginForm() {
         onChangeText={verifyPassword}
         error={errors.passwordError}
         secureTextEntry={true}
-        isPassword={true}
       />
       <CustomButton
         title="Login"

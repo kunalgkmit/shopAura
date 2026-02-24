@@ -13,7 +13,6 @@ export default function CustomTextInput({
   editable,
   autoCapitalize = 'none',
   secureTextEntry,
-  isPassword,
   label,
   helperText,
 }: CustomTextInputProps) {
@@ -41,7 +40,7 @@ export default function CustomTextInput({
             editable={editable}
             secureTextEntry={passwordVisible}
           />
-          {isPassword ? (
+          {secureTextEntry ? (
             <TouchableOpacity
               style={styles.eyeIcon}
               onPress={handlePasswordVisible}
