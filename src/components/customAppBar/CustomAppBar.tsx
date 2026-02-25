@@ -13,7 +13,7 @@ export default function CustomAppBar({ title, showDrawer }: CustomAppBarProps) {
     paddingTop: insets.top,
   });
 
-  const handleLeftIconPress = () => {
+  const handleDrawerOpen = () => {
     if (showDrawer) {
       navigation.openDrawer();
     } else {
@@ -24,7 +24,7 @@ export default function CustomAppBar({ title, showDrawer }: CustomAppBarProps) {
   return (
     <View style={[styles.container, getSafeAreaPadding()]}>
       <View style={styles.contentWrapper}>
-        <Ionicons name="menu-outline" size={30} onPress={handleLeftIconPress} />
+        <Ionicons name="menu-outline" size={30} onPress={handleDrawerOpen} />
         <Text style={styles.title}>{title}</Text>
       </View>
     </View>
