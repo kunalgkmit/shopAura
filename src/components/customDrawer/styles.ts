@@ -28,7 +28,15 @@ export const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   text: { color: COLORS.TEXT_INVERSE, fontWeight: 'bold' },
-  profileImage: { height: 70, width: 70, tintColor: COLORS.SHADOW },
+  profileImageWrapper: {
+    height: hp('11%'),
+    width: wp('24%'),
+    borderWidth: 1,
+    borderColor: COLORS.BG_PRIMARY,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 50,
+  },
   drawerItems: {
     flexDirection: 'row',
     width: '90%',

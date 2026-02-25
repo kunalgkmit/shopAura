@@ -25,11 +25,12 @@ export default function CustomDrawer({
     <View style={styles.container}>
       <View style={styles.contentWrapper}>
         <View style={styles.buttonTextWrapper}>
-          {/* <Image style={styles.profileImage} source={userImg} /> */}
-          <Ionicons name="key" size={25} />
+          <View style={styles.profileImageWrapper}>
+            <Ionicons name="person" color={COLORS.BG_CARD} size={25} />
+          </View>
           <View style={styles.textWrapper}>
-            <Text style={styles.text}>Kunal Prajapat</Text>
-            <Text style={styles.text}>kunal@gmail.com</Text>
+            <Text style={styles.text}>Sample User</Text>
+            <Text style={styles.text}>sample@gmail.com</Text>
           </View>
         </View>
       </View>
