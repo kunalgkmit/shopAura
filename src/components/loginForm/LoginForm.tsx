@@ -22,17 +22,10 @@ export default function LoginForm() {
   const verifyEmail = (value: string) => {
     setEmail(value);
     const emailError = validateEmail(value);
-    if (emailError) {
-      setErrors(prev => ({
-        ...prev,
-        emailError,
-      }));
-    } else {
-      setErrors(prev => ({
-        ...prev,
-        emailError: '',
-      }));
-    }
+    setErrors(prev => ({
+      ...prev,
+      emailError,
+    }));
   };
 
   const verifyPassword = (pwd: string) => {
