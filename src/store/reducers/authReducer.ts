@@ -7,7 +7,6 @@ const initialState = {
 };
 
 export const authReducer = (state = initialState, action: any) => {
-  console.log("ACTIONNN>>>", action)
   switch (action.type) {
     case SET_AUTH_TOKENS:
       return {

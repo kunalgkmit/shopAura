@@ -1,2 +1,2 @@
 export { default } from './store';
-export { persistor } from './store';
+export * from './store';

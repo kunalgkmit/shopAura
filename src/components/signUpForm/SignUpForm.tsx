@@ -108,6 +108,7 @@ export default function SignUpForm({ handleToggleLogin }: ToggleAuthScreen) {
     Alert.alert('Account Created', 'Please log in to continue', [
       { text: 'OK' },
     ]);
+    handleToggleLogin();
   };
 
   const handleSubmit = () => {
@@ -137,10 +138,7 @@ export default function SignUpForm({ handleToggleLogin }: ToggleAuthScreen) {
     userSignUpMutate(
       { name, email, password, avatar },
       {
-        onSuccess: () => {
-          handleSignUpSuccess();
-          handleToggleLogin();
-        },
+        onSuccess: () => handleSignUpSuccess(),
       },
     );
   };
