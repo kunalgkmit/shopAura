@@ -6,7 +6,6 @@ import {
 
 export const styles = StyleSheet.create({
   container: {
-    paddingTop: 10,
     alignItems:'center'
   },
   homeBanner: { height: hp('20%'), width: wp('95%'), borderRadius: 25 },
