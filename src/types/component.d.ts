@@ -21,3 +21,8 @@ interface ButtonProps {
 interface ToggleAuthScreen {
   handleToggleLogin: () => void;
 }
+
+interface CustomAppBarProps {
+  title: string;
+  showDrawer?: boolean;
+}
