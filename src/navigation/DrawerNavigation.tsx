@@ -3,7 +3,7 @@ import { ROUTES } from '@constants/routes';
 import Cart from '@screens/cart/Cart';
 import Home from '@screens/home/Home';
 import Mywishlist from '@screens/myWishlist/Mywishlist';
-import CustomDrawer from '@components/customDrawer/CustomDrawer';
+import CustomDrawer from '@components/customDrawer';
 
 const Drawer = createDrawerNavigator<DrawerTabTypes>();
 

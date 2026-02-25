@@ -7,14 +7,11 @@ const initialState = {
 };
 
 export const authReducer = (state = initialState, action: any) => {
-  console.log('ACTIONNNN>>', action);
   switch (action.type) {
     case SET_AUTH_TOKENS:
       return {
         ...state,
-        accessToken: action.payload.accessToken,
-        refreshToken: action.payload.refreshToken,
-        isLoggedIn: action.payload.isLoggedIn,
+        ...action.payload,
       };
     default:
       return state;

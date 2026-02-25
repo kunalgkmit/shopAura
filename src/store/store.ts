@@ -10,6 +10,8 @@ const persistConfig = {
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
-export const store = createStore(persistedReducer);
+const store = createStore(persistedReducer);
+
+export default store;
 
 export const persistor = persistStore(store);

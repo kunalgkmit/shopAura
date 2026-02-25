@@ -1,6 +1,12 @@
 import { useState } from 'react';
 
-import { ActivityIndicator, Image, TouchableOpacity, View } from 'react-native';
+import {
+  ActivityIndicator,
+  Alert,
+  Image,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import { launchImageLibrary } from 'react-native-image-picker';
 import Ionicons from '@react-native-vector-icons/ionicons';
 
@@ -15,9 +21,11 @@ import {
   validateUserName,
 } from '@utils/helpers';
 import { COLORS } from '@constants/colors';
+import { APP_INFO } from '@constants/constants';
+
 import { styles } from './styles';
 
-export default function SignUpForm() {
+export default function SignUpForm({ handleToggleLogin }: ToggleAuthScreen) {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -96,6 +104,13 @@ export default function SignUpForm() {
     });
   };
 
+  const handleSignUpSuccess = () => {
+    Alert.alert('Account Created', 'Please log in to continue', [
+      { text: 'OK' },
+    ]);
+    handleToggleLogin();
+  };
+
   const handleSubmit = () => {
     const fullNameError = validateUserName(name);
     const emailError = validateEmail(email);
@@ -120,7 +135,12 @@ export default function SignUpForm() {
     if (hasError) {
       return '';
     }
-    userSignUpMutate({ name, email, password, avatar });
+    userSignUpMutate(
+      { name, email, password, avatar },
+      {
+        onSuccess: () => handleSignUpSuccess(),
+      },
+    );
   };
 
   return (
@@ -144,27 +164,27 @@ export default function SignUpForm() {
       </View>
 
       <CustomTextInput
-        label="Full Name"
-        placeholder="Enter Full Name"
+        label={APP_INFO.FULL_NAME_LABEL}
+        placeholder={APP_INFO.FULL_NAME_PLACEHOLDER}
         value={name}
         onChangeText={verifyFullName}
         error={errors.fullNameError}
       />
       <CustomTextInput
-        label="Email"
-        placeholder="Enter Email"
+        label={APP_INFO.EMAIL_LABEL}
+        placeholder={APP_INFO.EMAIL_PLACEHOLDER}
         value={email}
         onChangeText={verifyEmail}
         error={errors.emailError}
       />
       <CustomTextInput
-        label="Password"
-        placeholder="Enter Password"
+        label={APP_INFO.PASSWORD_LABEL}
+        placeholder={APP_INFO.PASSWORD_PLACEHOLDER}
         value={password}
         onChangeText={verifyPassword}
         error={errors.passwordError}
         secureTextEntry={true}
-        helperText="Min. 8 characters, 1 uppercase, 1 lowercase & 1 number"
+        helperText={APP_INFO.PASSWORD_HELPER_TEXT}
       />
       <CustomTextInput
         placeholder="Confirm Password"
