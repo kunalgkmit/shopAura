@@ -1,5 +1,5 @@
-import CustomAppBar from '@components/customAppBar';
 import { Text, View } from 'react-native';
+import CustomAppBar from '@components/customAppBar';
 
 export default function Cart() {
   return (
