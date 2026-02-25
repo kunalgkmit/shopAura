@@ -25,6 +25,8 @@ export default function CustomDrawer({
     <View style={styles.container}>
       <View style={styles.contentWrapper}>
         <View style={styles.buttonTextWrapper}>
+          {/* temporary data for profile*/}
+
           <View style={styles.profileImageWrapper}>
             <Ionicons name="person" color={COLORS.BG_CARD} size={25} />
           </View>
@@ -39,6 +41,9 @@ export default function CustomDrawer({
         const isFocused = state.index === index;
         const iconName = getIconName(item.name, isFocused);
         const color = isFocused ? COLORS.SHADOW : COLORS.TEXT_SECONDARY;
+
+        const handleNavigate = () => navigation.navigate(item.name);
+
         return (
           <TouchableOpacity
             key={item.key}
@@ -48,7 +53,7 @@ export default function CustomDrawer({
                 backgroundColor: isFocused ? COLORS.BORDER : '',
               },
             ]}
-            onPress={() => navigation.navigate(item.name)}
+            onPress={handleNavigate}
           >
             <Ionicons name={iconName} size={25} color={color} />
 

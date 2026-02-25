@@ -14,7 +14,7 @@ export default function DrawerTabScreen() {
         headerShown: false,
         drawerType: 'front',
       }}
-      drawerContent={props => <CustomDrawer {...props} />}
+      drawerContent={CustomDrawer}
     >
       <Drawer.Screen name={ROUTES.DRAWER.HOME} component={Home} />
       <Drawer.Screen name={ROUTES.DRAWER.MY_WISHLIST} component={Mywishlist} />
