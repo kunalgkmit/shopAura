@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Alert, View } from 'react-native';
 
+import { APP_INFO } from '@constants/constants';
 import CustomTextInput from '@components/customTextInput';
 import CustomButton from '@components/customButton';
 import { useUserLogin } from '@hooks/useUserLogin';
@@ -38,6 +39,14 @@ export default function LoginForm() {
     }));
   };
 
+  const handleLoginError = (error: Error) => {
+    Alert.alert(
+      'Login Failed',
+      error?.message || 'Something went wrong, please try again.',
+      [{ text: 'OK' }],
+    );
+  };
+
   const handleSubmit = () => {
     const emailError = validateEmail(email);
     const passwordError = validatePassword(password);
@@ -56,12 +65,7 @@ export default function LoginForm() {
     loginMutate(
       { email, password },
       {
-        onError: error =>
-          Alert.alert(
-            'Login Failed',
-            error?.message || 'Something went wrong, please try again.',
-            [{ text: 'OK' }],
-          ),
+        onError: handleLoginError,
       },
     );
   };
@@ -82,7 +86,7 @@ export default function LoginForm() {
         secureTextEntry={true}
       />
       <CustomButton
-        title="Login"
+        title={APP_INFO.LOGIN}
         onPress={handleSubmit}
         showLoading={isPending}
       />
