@@ -15,3 +15,12 @@ export const APP_INFO = {
   EMAIL_PLACEHOLDER: 'Enter Email',
   PASSWORD_PLACEHOLDER: 'Enter Password',
 };
+
+export const ICONS = {
+  HOME: 'home',
+  HOME_OUTLINE: 'home-outline',
+  HEART: 'heart',
+  HEART_OUTLINE: 'heart-outline',
+  CART: 'cart',
+  CART_OUTLINE: 'cart-outline',
+};
