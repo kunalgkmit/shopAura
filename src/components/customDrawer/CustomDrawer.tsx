@@ -7,25 +7,25 @@ import { ICONS } from '@constants/constants';
 import { COLORS } from '@constants/colors';
 import { styles } from './styles';
 
+const DRAWER_ICONS = {
+  [ROUTES.DRAWER.HOME]: {
+    active: ICONS.HOME,
+    inactive: ICONS.HOME_OUTLINE,
+  },
+  [ROUTES.DRAWER.MY_WISHLIST]: {
+    active: ICONS.HEART,
+    inactive: ICONS.HEART_OUTLINE,
+  },
+  [ROUTES.DRAWER.CART]: {
+    active: ICONS.CART,
+    inactive: ICONS.CART_OUTLINE,
+  },
+};
+
 export default function CustomDrawer({
   state,
   navigation,
 }: DrawerContentComponentProps) {
-  const DRAWER_ICONS = {
-    [ROUTES.DRAWER.HOME]: {
-      active: ICONS.HOME,
-      inactive: ICONS.HOME_OUTLINE,
-    },
-    [ROUTES.DRAWER.MY_WISHLIST]: {
-      active: ICONS.HEART,
-      inactive: ICONS.HEART_OUTLINE,
-    },
-    [ROUTES.DRAWER.CART]: {
-      active: ICONS.CART,
-      inactive: ICONS.CART_OUTLINE,
-    },
-  };
-
   return (
     <View style={styles.container}>
       <View style={styles.contentWrapper}>
