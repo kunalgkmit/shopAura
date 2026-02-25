@@ -2,7 +2,7 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { Provider } from 'react-redux';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { PersistGate } from 'redux-persist/integration/react';
-import { persistor, store } from '@store/store';
+import store, { persistor } from '@store';
 import Routes from '@navigation/Routes';
 
 const queryClient = new QueryClient();
