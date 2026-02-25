@@ -1,10 +1,12 @@
-import { SET_AUTH_TOKENS } from "@store/actionTypes/authActionTypes";
+import { SET_AUTH_TOKENS } from '@store/actionTypes/authActionTypes';
 
-export const setAuthTokens = (accessToken: string, refreshToken: string) => ({
+export const setAuthTokens = (tokens: {
+  accessToken: string;
+  refreshToken: string;
+}) => ({
   type: SET_AUTH_TOKENS,
   payload: {
-    accessToken,
-    refreshToken,
+    ...tokens,
     isLoggedIn: true,
   },
 });

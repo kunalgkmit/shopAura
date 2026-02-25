@@ -7,6 +7,11 @@ export const useUserLogin = () => {
   return useMutation({
     mutationFn: userLogin,
     onSuccess: data =>
-      store.dispatch(setAuthTokens(data.access_token, data.refresh_token)),
+      store.dispatch(
+        setAuthTokens({
+          accessToken: data.access_token,
+          refreshToken: data.refresh_token,
+        }),
+      ),
   });
 };
