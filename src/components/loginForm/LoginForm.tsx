@@ -73,13 +73,15 @@ export default function LoginForm() {
   return (
     <View style={styles.container}>
       <CustomTextInput
-        placeholder="Enter Email"
+        label={APP_INFO.EMAIL_LABEL}
+        placeholder={APP_INFO.EMAIL_PLACEHOLDER}
         value={email}
         onChangeText={verifyEmail}
         error={errors.emailError}
       />
       <CustomTextInput
-        placeholder="Enter Password"
+        label={APP_INFO.PASSWORD_LABEL}
+        placeholder={APP_INFO.PASSWORD_PLACEHOLDER}
         value={password}
         onChangeText={verifyPassword}
         error={errors.passwordError}

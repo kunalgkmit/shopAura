@@ -21,6 +21,8 @@ import {
   validateUserName,
 } from '@utils/helpers';
 import { COLORS } from '@constants/colors';
+import { APP_INFO } from '@constants/constants';
+
 import { styles } from './styles';
 
 export default function SignUpForm({ handleToggleLogin }: ToggleAuthScreen) {
@@ -164,38 +166,38 @@ export default function SignUpForm({ handleToggleLogin }: ToggleAuthScreen) {
       </View>
 
       <CustomTextInput
-        label="Full Name"
-        placeholder="Enter Full Name"
+        label={APP_INFO.FULL_NAME_LABEL}
+        placeholder={APP_INFO.FULL_NAME_PLACEHOLDER}
         value={name}
         onChangeText={verifyFullName}
         error={errors.fullNameError}
       />
       <CustomTextInput
-        label="Email"
-        placeholder="Enter Email"
+        label={APP_INFO.EMAIL_LABEL}
+        placeholder={APP_INFO.EMAIL_PLACEHOLDER}
         value={email}
         onChangeText={verifyEmail}
         error={errors.emailError}
       />
       <CustomTextInput
-        label="Password"
-        placeholder="Enter Password"
+        label={APP_INFO.PASSWORD_LABEL}
+        placeholder={APP_INFO.PASSWORD_PLACEHOLDER}
         value={password}
         onChangeText={verifyPassword}
         error={errors.passwordError}
         secureTextEntry={true}
-        helperText="Min. 8 characters, 1 uppercase, 1 lowercase & 1 number"
+        helperText={APP_INFO.PASSWORD_HELPER_TEXT}
       />
       <CustomTextInput
-        placeholder="Confirm Password"
-        label="Confirm Password"
+        placeholder={APP_INFO.CONFIRM_PASSWORD_LABEL}
+        label={APP_INFO.CONFIRM_PASSWORD_LABEL}
         value={confirmPassword}
         onChangeText={verifyConfirmPassword}
         error={errors.confirmPasswordError}
         secureTextEntry={true}
       />
       <CustomButton
-        title="Create Account"
+        title={APP_INFO.CREATE_ACCOUNT_BUTTON}
         onPress={handleSubmit}
         showLoading={signUpPending}
       />
