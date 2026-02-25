@@ -1,6 +1,7 @@
 import { useState } from 'react';
-import { View } from 'react-native';
+import { Alert, View } from 'react-native';
 
+import { APP_INFO } from '@constants/constants';
 import CustomTextInput from '@components/customTextInput';
 import CustomButton from '@components/customButton';
 import { useUserLogin } from '@hooks/useUserLogin';
@@ -22,34 +23,28 @@ export default function LoginForm() {
   const verifyEmail = (value: string) => {
     setEmail(value);
     const emailError = validateEmail(value);
-    if (emailError) {
-      setErrors(prev => ({
-        ...prev,
-        emailError,
-      }));
-    } else {
-      setErrors(prev => ({
-        ...prev,
-        emailError: '',
-      }));
-    }
+    setErrors(prev => ({
+      ...prev,
+      emailError,
+    }));
   };
 
   const verifyPassword = (pwd: string) => {
     setPassword(pwd);
     const passwordError = validatePassword(pwd);
 
-    if (passwordError) {
-      setErrors(prev => ({
-        ...prev,
-        passwordError,
-      }));
-    } else {
-      setErrors(prev => ({
-        ...prev,
-        passwordError: '',
-      }));
-    }
+    setErrors(prev => ({
+      ...prev,
+      passwordError,
+    }));
+  };
+
+  const handleLoginError = (error: Error) => {
+    Alert.alert(
+      'Login Failed',
+      error?.message || 'Something went wrong, please try again.',
+      [{ text: 'OK' }],
+    );
   };
 
   const handleSubmit = () => {
@@ -67,26 +62,33 @@ export default function LoginForm() {
       setErrors(updatedErrors);
       return '';
     }
-    loginMutate({ email, password });
+    loginMutate(
+      { email, password },
+      {
+        onError: handleLoginError,
+      },
+    );
   };
 
   return (
     <View style={styles.container}>
       <CustomTextInput
-        placeholder="Enter Email"
+        label={APP_INFO.EMAIL_LABEL}
+        placeholder={APP_INFO.EMAIL_PLACEHOLDER}
         value={email}
         onChangeText={verifyEmail}
         error={errors.emailError}
       />
       <CustomTextInput
-        placeholder="Enter Password"
+        label={APP_INFO.PASSWORD_LABEL}
+        placeholder={APP_INFO.PASSWORD_PLACEHOLDER}
         value={password}
         onChangeText={verifyPassword}
         error={errors.passwordError}
         secureTextEntry={true}
       />
       <CustomButton
-        title="Login"
+        title={APP_INFO.LOGIN}
         onPress={handleSubmit}
         showLoading={isPending}
       />

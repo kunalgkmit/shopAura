@@ -8,6 +8,7 @@
       "@screens/*": ["screens/*"],
       "@constants/*": ["constants/*"],
       "@constants": ["./src/constants"],
+      "@store": ["store"],
       "@store/*": ["store/*"],
       "@utils/*": ["utils/*"],
       "@navigation/*": ["navigation/*"],
