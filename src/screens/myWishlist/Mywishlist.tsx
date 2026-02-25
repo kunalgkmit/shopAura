@@ -1,9 +1,13 @@
 import { Text, View } from 'react-native';
+import CustomAppBar from '@components/customAppBar';
 
 export default function Mywishlist() {
   return (
-    <View>
-      <Text>My Wishlist</Text>
-    </View>
+    <>
+      <CustomAppBar title="My Wishlist" showDrawer={true} />
+      <View>
+        <Text>My Wishlist</Text>
+      </View>
+    </>
   );
 }

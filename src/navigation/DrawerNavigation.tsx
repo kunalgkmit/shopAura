@@ -9,7 +9,13 @@ const Drawer = createDrawerNavigator<DrawerTabTypes>();
 
 export default function DrawerTabScreen() {
   return (
-    <Drawer.Navigator drawerContent={props => <CustomDrawer {...props} />}>
+    <Drawer.Navigator
+      screenOptions={{
+        headerShown: false,
+        drawerType: 'front',
+      }}
+      drawerContent={props => <CustomDrawer {...props} />}
+    >
       <Drawer.Screen name={ROUTES.DRAWER.HOME} component={Home} />
       <Drawer.Screen name={ROUTES.DRAWER.MY_WISHLIST} component={Mywishlist} />
       <Drawer.Screen name={ROUTES.DRAWER.CART} component={Cart} />

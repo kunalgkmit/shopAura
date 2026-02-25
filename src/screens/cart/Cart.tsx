@@ -1,9 +1,13 @@
+import CustomAppBar from '@components/customAppBar';
 import { Text, View } from 'react-native';
 
 export default function Cart() {
   return (
-    <View>
-      <Text>Cart</Text>
-    </View>
+    <>
+      <CustomAppBar title="Cart" showDrawer={true} />
+      <View>
+        <Text>Cart</Text>
+      </View>
+    </>
   );
 }
