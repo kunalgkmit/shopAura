@@ -9,10 +9,6 @@ export function CustomAppBar({ title, showDrawer }: CustomAppBarProps) {
   const navigation = useNavigation<DrawerNavProp>();
   const insets = useSafeAreaInsets();
 
-  const getSafeAreaPadding = () => ({
-    paddingTop: insets.top,
-  });
-
   const handleLeftIconPress = () => {
     if (showDrawer) {
       navigation.openDrawer();
@@ -22,7 +18,7 @@ export function CustomAppBar({ title, showDrawer }: CustomAppBarProps) {
   };
 
   return (
-    <View style={[styles.container, getSafeAreaPadding()]}>
+    <View style={[styles.container, { paddingTop: insets.top }]}>
       <View style={styles.contentWrapper}>
         <Ionicons name="menu-outline" size={30} onPress={handleLeftIconPress} />
         <Text style={styles.title}>{title}</Text>
