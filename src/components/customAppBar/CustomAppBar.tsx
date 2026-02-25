@@ -5,7 +5,7 @@ import { useNavigation } from '@react-navigation/native';
 
 import { styles } from './styles';
 
-export default function CustomAppBar({ title, showDrawer }: CustomAppBarProps) {
+export function CustomAppBar({ title, showDrawer }: CustomAppBarProps) {
   const navigation = useNavigation<DrawerNavProp>();
   const insets = useSafeAreaInsets();
 
@@ -13,7 +13,7 @@ export default function CustomAppBar({ title, showDrawer }: CustomAppBarProps) {
     paddingTop: insets.top,
   });
 
-  const handleDrawerOpen = () => {
+  const handleLeftIconPress = () => {
     if (showDrawer) {
       navigation.openDrawer();
     } else {
@@ -24,7 +24,7 @@ export default function CustomAppBar({ title, showDrawer }: CustomAppBarProps) {
   return (
     <View style={[styles.container, getSafeAreaPadding()]}>
       <View style={styles.contentWrapper}>
-        <Ionicons name="menu-outline" size={30} onPress={handleDrawerOpen} />
+        <Ionicons name="menu-outline" size={30} onPress={handleLeftIconPress} />
         <Text style={styles.title}>{title}</Text>
       </View>
     </View>
