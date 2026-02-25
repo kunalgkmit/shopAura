@@ -14,7 +14,7 @@ export const styles = StyleSheet.create({
     flexDirection: 'row',
     shadowColor: COLORS.SHADOW,
     shadowOffset: { width: 5, height: 9 },
-    shadowOpacity: 0.3,
+    shadowOpacity: 0.12,
     shadowRadius: 8,
     elevation: 5,
     backgroundColor: COLORS.BORDER,

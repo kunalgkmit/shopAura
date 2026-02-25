@@ -7,24 +7,31 @@ import { ICONS } from '@constants/constants';
 import { COLORS } from '@constants/colors';
 import { styles } from './styles';
 
+const DRAWER_ICONS = {
+  [ROUTES.DRAWER.HOME]: {
+    active: ICONS.HOME,
+    inactive: ICONS.HOME_OUTLINE,
+  },
+  [ROUTES.DRAWER.MY_WISHLIST]: {
+    active: ICONS.HEART,
+    inactive: ICONS.HEART_OUTLINE,
+  },
+  [ROUTES.DRAWER.CART]: {
+    active: ICONS.CART,
+    inactive: ICONS.CART_OUTLINE,
+  },
+};
+
 export default function CustomDrawer({
   state,
   navigation,
 }: DrawerContentComponentProps) {
-  const getIconName = (routeName: string, isFocused: boolean): string => {
-    if (routeName === ROUTES.DRAWER.HOME) {
-      return isFocused ? ICONS.HOME : ICONS.HOME_OUTLINE;
-    } else if (routeName === ROUTES.DRAWER.MY_WISHLIST) {
-      return isFocused ? ICONS.HEART : ICONS.HEART_OUTLINE;
-    } else {
-      return isFocused ? ICONS.CART : ICONS.CART_OUTLINE;
-    }
-  };
-
   return (
     <View style={styles.container}>
       <View style={styles.contentWrapper}>
         <View style={styles.buttonTextWrapper}>
+          {/* temporary data for profile*/}
+
           <View style={styles.profileImageWrapper}>
             <Ionicons name="person" color={COLORS.BG_CARD} size={25} />
           </View>
@@ -37,18 +44,24 @@ export default function CustomDrawer({
 
       {state.routes.map((item, index) => {
         const isFocused = state.index === index;
-        const iconName = getIconName(item.name, isFocused);
+        const iconName = isFocused
+          ? DRAWER_ICONS[item.name]?.active
+          : DRAWER_ICONS[item.name]?.inactive;
         const color = isFocused ? COLORS.SHADOW : COLORS.TEXT_SECONDARY;
+        const backgroundColor = isFocused ? COLORS.BORDER : '';
+
+        const handleNavigate = () => navigation.navigate(item.name);
+
         return (
           <TouchableOpacity
             key={item.key}
             style={[
               styles.drawerItems,
               {
-                backgroundColor: isFocused ? COLORS.BORDER : '',
+                backgroundColor,
               },
             ]}
-            onPress={() => navigation.navigate(item.name)}
+            onPress={handleNavigate}
           >
             <Ionicons name={iconName} size={25} color={color} />
 
