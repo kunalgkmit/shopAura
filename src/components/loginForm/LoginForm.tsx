@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { View } from 'react-native';
+import { Alert, View } from 'react-native';
 
 import CustomTextInput from '@components/customTextInput';
 import CustomButton from '@components/customButton';
@@ -67,7 +67,17 @@ export default function LoginForm() {
       setErrors(updatedErrors);
       return '';
     }
-    loginMutate({ email, password });
+    loginMutate(
+      { email, password },
+      {
+        onError: error =>
+          Alert.alert(
+            'Login Failed',
+            error?.message || 'Something went wrong, please try again.',
+            [{ text: 'OK' }],
+          ),
+      },
+    );
   };
 
   return (
