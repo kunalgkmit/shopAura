@@ -189,15 +189,15 @@ export default function SignUpForm({ handleToggleLogin }: ToggleAuthScreen) {
         helperText={APP_INFO.PASSWORD_HELPER_TEXT}
       />
       <CustomTextInput
-        placeholder={APP_INFO.CONFIRM_PASSWORD_LABEL}
-        label={APP_INFO.CONFIRM_PASSWORD_LABEL}
+        placeholder="Confirm Password"
+        label="Confirm Password"
         value={confirmPassword}
         onChangeText={verifyConfirmPassword}
         error={errors.confirmPasswordError}
         secureTextEntry={true}
       />
       <CustomButton
-        title={APP_INFO.CREATE_ACCOUNT_BUTTON}
+        title="Create Account"
         onPress={handleSubmit}
         showLoading={signUpPending}
       />

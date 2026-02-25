@@ -10,8 +10,6 @@ export const APP_INFO = {
   FULL_NAME_LABEL: 'Full Name',
   EMAIL_LABEL: 'Email',
   PASSWORD_LABEL: 'Password',
-  CONFIRM_PASSWORD_LABEL: 'Confirm Password',
-  CREATE_ACCOUNT_BUTTON: 'Create Account',
 
   FULL_NAME_PLACEHOLDER: 'Enter Full Name',
   EMAIL_PLACEHOLDER: 'Enter Email',
