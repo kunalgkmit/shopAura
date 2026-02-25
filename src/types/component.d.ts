@@ -26,3 +26,13 @@ interface CustomAppBarProps {
   title: string;
   showDrawer?: boolean;
 }
+
+interface Category {
+  id: number;
+  name: string;
+  image: string;
+}
+
+interface CategoryCardProps {
+  categoryData: Category;
+}
