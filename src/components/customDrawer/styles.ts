@@ -31,6 +31,7 @@ export const styles = StyleSheet.create({
     height: 50,
     alignItems: 'center',
     borderRadius: 20,
+    paddingLeft: 10,
   },
   drawerItemIcon: {
     height: 20,
