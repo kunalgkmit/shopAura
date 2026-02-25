@@ -4,10 +4,10 @@ import { CustomAppBar } from '@components/customAppBar';
 export default function Home() {
   return (
     <>
-    <CustomAppBar title='Home' showDrawer={true}/>
-    <View>
-      <Text>HOME SCREEN</Text>
-    </View>
+      <CustomAppBar title="Home" showDrawer />
+      <View>
+        <Text>HOME SCREEN</Text>
+      </View>
     </>
   );
 }
