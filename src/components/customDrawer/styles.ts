@@ -1,5 +1,9 @@
 import { StyleSheet } from 'react-native';
-import { COLORS } from '../../constants/colors';
+import {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp,
+} from 'react-native-responsive-screen';
+import { COLORS } from '@constants/colors';
 
 export const styles = StyleSheet.create({
   container: {
@@ -9,15 +13,15 @@ export const styles = StyleSheet.create({
   contentWrapper: {
     backgroundColor: COLORS.SHADOW,
     width: '100%',
-    height: '30%',
+    height: hp('30%'),
     justifyContent: 'center',
-    marginBottom: 10,
+    marginBottom: hp('2%'),
   },
   buttonTextWrapper: {
-    marginLeft: 30,
+    marginLeft: wp('7%'),
     height: '60%',
     justifyContent: 'space-around',
-    marginTop: 30,
+    marginTop: hp('10%'),
   },
   textWrapper: {
     height: 45,
@@ -28,18 +32,13 @@ export const styles = StyleSheet.create({
   drawerItems: {
     flexDirection: 'row',
     width: '90%',
-    height: 50,
+    height: hp('5.5%'),
     alignItems: 'center',
     borderRadius: 20,
     paddingLeft: 10,
   },
-  drawerItemIcon: {
-    height: 20,
-    width: 20,
-    marginLeft: 15,
-  },
   drawerItemTitle: {
-    marginLeft: 15,
+    marginLeft: wp('3%'),
   },
   itemTitle: {
     fontWeight: 'bold',
