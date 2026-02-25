@@ -17,3 +17,7 @@ interface ButtonProps {
   isLogout?: boolean;
   isClearFilter?: boolean;
 }
+
+interface ToggleAuthScreen {
+  handleToggleLogin: () => void;
+}

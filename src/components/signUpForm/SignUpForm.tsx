@@ -1,6 +1,12 @@
 import { useState } from 'react';
 
-import { ActivityIndicator, Image, TouchableOpacity, View } from 'react-native';
+import {
+  ActivityIndicator,
+  Alert,
+  Image,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import { launchImageLibrary } from 'react-native-image-picker';
 import Ionicons from '@react-native-vector-icons/ionicons';
 
@@ -17,7 +23,7 @@ import {
 import { COLORS } from '@constants/colors';
 import { styles } from './styles';
 
-export default function SignUpForm() {
+export default function SignUpForm({ handleToggleLogin }: ToggleAuthScreen) {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -120,7 +126,17 @@ export default function SignUpForm() {
     if (hasError) {
       return '';
     }
-    userSignUpMutate({ name, email, password, avatar });
+    userSignUpMutate(
+      { name, email, password, avatar },
+      {
+        onSuccess: () => {
+          Alert.alert('Account Created', 'Please log in to continue', [
+            { text: 'OK' },
+          ]);
+          handleToggleLogin();
+        },
+      },
+    );
   };
 
   return (

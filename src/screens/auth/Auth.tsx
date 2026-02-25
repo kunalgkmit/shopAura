@@ -20,7 +20,11 @@ export default function AuthScreen() {
           {isLogin ? APP_INFO.LOGIN : APP_INFO.SIGN_UP}
         </Text>
       </View>
-      {isLogin ? <LoginForm /> : <SignUpForm />}
+      {isLogin ? (
+        <LoginForm />
+      ) : (
+        <SignUpForm handleToggleLogin={handleToggleLogin} />
+      )}
 
       <View style={styles.authFooter}>
         <Text style={styles.footerText}>
