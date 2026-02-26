@@ -1,12 +1,11 @@
-import { Image, Text, View } from 'react-native';
+import { Image, View } from 'react-native';
 import { styles } from './styles';
-
-const homeBanner = require('@assets/images/homeBanner.png');
+import { IMAGES } from '@constants/constants';
 
 export default function Banner() {
   return (
     <View style={styles.container}>
-      <Image source={homeBanner} style={styles.homeBanner} />
+      <Image source={IMAGES.HOME_BANNER} style={styles.homeBanner} />
     </View>
   );
 }

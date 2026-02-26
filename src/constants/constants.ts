@@ -40,3 +40,7 @@ export const CATEGORIES = [
   { id: 5, name: 'Sports', icon: 'football-outline', color: COLORS.SPORTS },
   { id: 6, name: 'Books', icon: 'book-outline', color: COLORS.BOOKS },
 ];
+
+export const IMAGES = {
+  HOME_BANNER: require('@assets/images/homeBanner.png'),
+};
