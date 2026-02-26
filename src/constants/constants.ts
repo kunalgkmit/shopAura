@@ -1,3 +1,5 @@
+import { COLORS } from './colors';
+
 export const APP_INFO = {
   TITLE: 'Shop Aura',
   SIGN_UP: 'Sign Up',
@@ -24,3 +26,17 @@ export const ICONS = {
   CART: 'cart',
   CART_OUTLINE: 'cart-outline',
 };
+
+export const CATEGORIES = [
+  { id: 1, name: 'Fashion', icon: 'shirt-outline', color: COLORS.FASHION },
+  {
+    id: 2,
+    name: 'Electronics',
+    icon: 'battery-charging-outline',
+    color: COLORS.ELECTRONICS,
+  },
+  { id: 3, name: 'Grocery', icon: 'bag-outline', color: COLORS.GROCERY },
+  { id: 4, name: 'Beauty', icon: 'rose-outline', color: COLORS.BEAUTY },
+  { id: 5, name: 'Sports', icon: 'football-outline', color: COLORS.SPORTS },
+  { id: 6, name: 'Books', icon: 'book-outline', color: COLORS.BOOKS },
+];

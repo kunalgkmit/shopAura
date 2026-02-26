@@ -30,7 +30,8 @@ interface CustomAppBarProps {
 interface Category {
   id: number;
   name: string;
-  image: string;
+  icon: string;
+  color: string;
 }
 
 interface CategoryCardProps {
