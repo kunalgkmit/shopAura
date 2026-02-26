@@ -3,19 +3,30 @@ import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
+import { FONTS } from '@constants/constants';
 
 export const styles = StyleSheet.create({
   container: {
     paddingTop: 10,
   },
   title: {
-    fontFamily: 'PlayfairDisplay-Medium',
-    fontSize: hp('4.5%'),
+    fontFamily: FONTS.PLAYFAIR_DISPLAY,
+    fontSize: hp('3%'),
   },
-  columnWrapperStyle: {
-    padding: 5,
-    justifyContent: 'space-between',
-    width: wp('85%'),
+  // columnWrapperStyle: {
+  //   justifyContent: 'space-evenly',
+  //   width: wp('100%'),
+  //   alignItems: 'center',
+  //   marginLeft: wp('-5%'),
+  //   marginBottom: hp('2%'),
+  // },
+
+  listWrapper: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
   },
-  contentContainerStyle: { padding: 10, paddingBottom:hp('72%') },
+
+  titleWrapper: {
+    paddingVertical: 15,
+  },
 });

@@ -30,7 +30,8 @@ interface CustomAppBarProps {
 interface Category {
   id: number;
   name: string;
-  image: string;
+  icon: string;
+  color: string;
 }
 
 interface ProductListing {
@@ -43,6 +44,12 @@ interface ProductListing {
 interface CategoryCardProps {
   categoryData: Category;
 }
+
+type CategoryAPIData = {
+  id: number;
+  name: string;
+  image: string;
+};
 
 interface ProductCardProps {
   productListingData: ProductListing;

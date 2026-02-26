@@ -1,25 +1,18 @@
-import { Image, Text, TouchableOpacity, View } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
+import { Text, TouchableOpacity, View } from 'react-native';
+import Ionicons from '@react-native-vector-icons/ionicons';
+import { COLORS } from '@constants/colors';
 import { styles } from './styles';
 import { ProductsListing } from '@screens/productsListing/ProductsListing';
 import { ROUTES } from '@constants/routes';
 
 export function CategoryCard({ categoryData }: CategoryCardProps) {
-  const navigation = useNavigation<StackNavProp>();
-
-  const { id, name, image } = categoryData;
-
-  const handleCategoryPress = () => {
-    navigation.navigate(ROUTES.STACK.PRODUCT_LISTING, {
-      categoryId: id,
-      categoryName: name,
-    });
-  };
-
+  const { name, icon, color } = categoryData;
   return (
-    <View>
-      <TouchableOpacity style={styles.box} onPress={handleCategoryPress}>
-        <Image source={{ uri: image }} style={styles.categoryImage} />
+    <View style={styles.container}>
+      <TouchableOpacity style={[styles.box, { backgroundColor: color }]}>
+        <View style={styles.iconWrapper}>
+          <Ionicons name={icon} size={30} color={COLORS.BG_CARD} />
+        </View>
         <Text style={styles.categoryName}>{name}</Text>
       </TouchableOpacity>
     </View>
