@@ -6,7 +6,7 @@ import { styles } from './styles';
 export function CategoryCard({ categoryData }: CategoryCardProps) {
   const { name, icon, color } = categoryData;
   return (
-    <View style={{ paddingLeft: 10 }}>
+    <View style={styles.container}>
       <TouchableOpacity style={[styles.box, { backgroundColor: color }]}>
         <View style={styles.iconWrapper}>
           <Ionicons name={icon} size={30} color={COLORS.BG_CARD} />

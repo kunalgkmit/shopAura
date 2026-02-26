@@ -6,6 +6,7 @@ import {
 import { COLORS } from '@constants/colors';
 
 export const styles = StyleSheet.create({
+  container: { paddingLeft: 10 },
   box: {
     height: hp('13%'),
     width: wp('28%'),
