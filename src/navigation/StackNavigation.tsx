@@ -1,6 +1,7 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Home from '@screens/home/Home';
 import { ProductsListing } from '@screens/productsListing/ProductsListing';
+import ProductDetails from '@screens/productDetails/ProductDetails';
 import { ROUTES } from '@constants/routes';
 
 const Stack = createNativeStackNavigator<StackScreenTypes>();
@@ -15,7 +16,7 @@ export default function StackNavigator() {
       />
       <Stack.Screen
         name={ROUTES.STACK.PRODUCT_DETAILS}
-        component={ProductsListing}
+        component={ProductDetails}
       />
     </Stack.Navigator>
   );
