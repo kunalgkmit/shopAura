@@ -5,4 +5,8 @@ export const ENDPOINTS = {
     PROFILE: '/auth/profile',
     AVATAR_UPLOAD: '/files/upload',
   },
+
+  CATEGORIES: {
+    GET_CATEGORIES: '/categories/',
+  },
 };
