@@ -5,4 +5,10 @@ export const ROUTES = {
     CART: 'Cart',
     LOGOUT: 'Logout',
   },
+
+  STACK: {
+    HOME: 'Home',
+    PRODUCT_LISTING: 'ProductListing',
+    PRODUCT_DETAILS: 'ProductDetails',
+  },
 };
