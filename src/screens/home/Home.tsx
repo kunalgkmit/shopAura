@@ -1,6 +1,6 @@
 import { View } from 'react-native';
 import { CustomAppBar } from '@components/customAppBar';
-import Banner from '@components/banner';
+import { Banner } from '@components/banner';
 import { Categories } from '@components/categories';
 import { styles } from './styles';
 
