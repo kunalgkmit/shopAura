@@ -3,13 +3,14 @@ import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
+import { FONTS } from '@constants/constants';
 
 export const styles = StyleSheet.create({
   container: {
     paddingTop: 10,
   },
   title: {
-    fontFamily: 'PlayfairDisplay-Medium',
+    fontFamily: FONTS.PLAYFAIR_DISPLAY,
     fontSize: hp('3%'),
   },
   columnWrapperStyle: {

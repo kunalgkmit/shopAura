@@ -44,3 +44,7 @@ export const CATEGORIES = [
 export const IMAGES = {
   HOME_BANNER: require('@assets/images/homeBanner.png'),
 };
+
+export const FONTS = {
+  PLAYFAIR_DISPLAY: 'PlayfairDisplay-Medium',
+};

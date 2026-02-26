@@ -4,6 +4,7 @@ import {
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
 import { COLORS } from '@constants/colors';
+import { FONTS } from '@constants/constants';
 
 export const styles = StyleSheet.create({
   container: { paddingLeft: 10 },
@@ -23,7 +24,7 @@ export const styles = StyleSheet.create({
   },
   categoryName: {
     fontSize: hp('1.6%'),
-    fontFamily: 'PlayfairDisplay-Medium',
+    fontFamily: FONTS.PLAYFAIR_DISPLAY,
     color: COLORS.TEXT_INVERSE,
   },
   categoryImage: {
@@ -33,7 +34,7 @@ export const styles = StyleSheet.create({
   },
 
   iconWrapper: {
-    backgroundColor: 'rgba(255, 255, 255, 0.2)',
+    backgroundColor: COLORS.OPAQUE_BG,
     padding: 10,
     borderRadius: 12,
   },

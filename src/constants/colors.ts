@@ -21,4 +21,6 @@ export const COLORS = {
   BEAUTY: '#e4b2b8',
   SPORTS: '#e7c143',
   BOOKS: '#e5d085',
+
+  OPAQUE_BG: 'rgba(255, 255, 255, 0.2)',
 };
