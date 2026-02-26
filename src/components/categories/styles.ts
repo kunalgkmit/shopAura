@@ -10,12 +10,15 @@ export const styles = StyleSheet.create({
   },
   title: {
     fontFamily: 'PlayfairDisplay-Medium',
-    fontSize: hp('4.5%'),
+    fontSize: hp('3%'),
   },
   columnWrapperStyle: {
-    padding: 5,
-    justifyContent: 'space-between',
-    width: wp('85%'),
+    padding: 6,
+    justifyContent: 'space-evenly',
+    width: wp('100%'),
+    alignItems:'center',
+    marginLeft: wp('-5%')
   },
-  contentContainerStyle: { padding: 10, paddingBottom:hp('72%') },
+
+  listWrapper: { width: '100%' },
 });

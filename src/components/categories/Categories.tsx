@@ -1,18 +1,18 @@
 import { FlatList, Text, View } from 'react-native';
 import { CategoryCard } from '@components/categoryCard';
-import { useCategories } from '@hooks/useCategories';
+import { CATEGORIES } from '@constants/constants';
 import { styles } from './styles';
 
 export function Categories() {
-  const { data: categories, isPending } = useCategories();
+  // getCategories hook call
+  // const { data: categories, isPending } = useCategories();
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Categories</Text>
-      <View style={{ alignItems: 'center' }}>
+      <View style={styles.listWrapper}>
         <FlatList
-          numColumns={2}
-          data={categories}
-          contentContainerStyle={styles.contentContainerStyle}
+          numColumns={3}
+          data={CATEGORIES}
           columnWrapperStyle={styles.columnWrapperStyle}
           keyExtractor={item => item.id.toString()}
           renderItem={({ item }) => <CategoryCard categoryData={item} />}
