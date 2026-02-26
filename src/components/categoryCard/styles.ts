@@ -7,7 +7,7 @@ import { COLORS } from '@constants/colors';
 import { FONTS } from '@constants/constants';
 
 export const styles = StyleSheet.create({
-  container: { paddingLeft: 10 },
+  container: { padding: 5, paddingBottom: 10 },
   box: {
     height: hp('13%'),
     width: wp('28%'),

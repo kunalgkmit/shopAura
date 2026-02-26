@@ -13,15 +13,18 @@ export const styles = StyleSheet.create({
     fontFamily: FONTS.PLAYFAIR_DISPLAY,
     fontSize: hp('3%'),
   },
-  columnWrapperStyle: {
-    justifyContent: 'space-evenly',
-    width: wp('100%'),
-    alignItems: 'center',
-    marginLeft: wp('-5%'),
-    marginBottom: hp('2%'),
-  },
+  // columnWrapperStyle: {
+  //   justifyContent: 'space-evenly',
+  //   width: wp('100%'),
+  //   alignItems: 'center',
+  //   marginLeft: wp('-5%'),
+  //   marginBottom: hp('2%'),
+  // },
 
-  listWrapper: { width: '100%' },
+  listWrapper: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+  },
 
   titleWrapper: {
     paddingVertical: 15,

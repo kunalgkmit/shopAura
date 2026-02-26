@@ -1,5 +1,5 @@
 import { useCallback } from 'react';
-import { FlatList, Text, View } from 'react-native';
+import { Text, View } from 'react-native';
 import { CategoryCard } from '@components/categoryCard';
 import { CATEGORIES } from '@constants/constants';
 import { styles } from './styles';
@@ -9,8 +9,8 @@ export function Categories() {
   // const { data: categories, isPending } = useCategories();
 
   const renderCategory = useCallback(
-    ({ item }: { item: (typeof CATEGORIES)[0] }) => (
-      <CategoryCard categoryData={item} />
+    ({ item }: { item: Category }) => (
+      <CategoryCard key={item.id} categoryData={item} />
     ),
     [],
   );
@@ -21,14 +21,7 @@ export function Categories() {
         <Text style={styles.title}>Categories</Text>
       </View>
       <View style={styles.listWrapper}>
-        <FlatList
-          numColumns={3}
-          data={CATEGORIES}
-          columnWrapperStyle={styles.columnWrapperStyle}
-          keyExtractor={item => item.id.toString()}
-          renderItem={renderCategory}
-          showsVerticalScrollIndicator={false}
-        />
+        {CATEGORIES.map(item => renderCategory({ item }))}
       </View>
     </View>
   );

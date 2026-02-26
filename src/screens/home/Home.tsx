@@ -7,7 +7,7 @@ import { styles } from './styles';
 export default function Home() {
   return (
     <>
-      <CustomAppBar title="Home" showDrawer={true} />
+      <CustomAppBar title="Home" showDrawer />
       <View style={styles.container}>
         <Banner />
         <Categories />
