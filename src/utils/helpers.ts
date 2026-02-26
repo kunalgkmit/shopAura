@@ -56,3 +56,9 @@ export const validateConfirmPassword = (
   }
   return '';
 };
+
+export const mapCategory = ({ id, name, image }: { id: number; name: string; image: string }) => ({
+  id,
+  name,
+  image,
+});
