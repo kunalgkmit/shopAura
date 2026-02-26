@@ -34,6 +34,13 @@ interface Category {
   color: string;
 }
 
+interface ProductListing {
+  id: number;
+  title: string;
+  image: string;
+  price: number;
+}
+
 interface CategoryCardProps {
   categoryData: Category;
 }
@@ -43,3 +50,7 @@ type CategoryAPIData = {
   name: string;
   image: string;
 };
+
+interface ProductCardProps {
+  productListingData: ProductListing;
+}

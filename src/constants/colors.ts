@@ -8,6 +8,7 @@ export const COLORS = {
   BG_PRIMARY: '#F5F7FA',
   BG_CARD: '#FFFFFF',
   BG_SURFACE: '#F9F9F9',
+  BG_PRODUCT_CARD: '#e8e8e8',
 
   RED: '#FF3B30',
 

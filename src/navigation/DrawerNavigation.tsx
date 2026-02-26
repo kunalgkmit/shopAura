@@ -1,9 +1,9 @@
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { ROUTES } from '@constants/routes';
 import Cart from '@screens/cart/Cart';
-import Home from '@screens/home/Home';
 import Mywishlist from '@screens/myWishlist/Mywishlist';
 import CustomDrawer from '@components/customDrawer';
+import StackNavigator from './StackNavigation';
 
 const Drawer = createDrawerNavigator<DrawerTabTypes>();
 
@@ -16,7 +16,7 @@ export default function DrawerTabScreen() {
       }}
       drawerContent={CustomDrawer}
     >
-      <Drawer.Screen name={ROUTES.DRAWER.HOME} component={Home} />
+      <Drawer.Screen name={ROUTES.DRAWER.HOME} component={StackNavigator} />
       <Drawer.Screen name={ROUTES.DRAWER.MY_WISHLIST} component={Mywishlist} />
       <Drawer.Screen name={ROUTES.DRAWER.CART} component={Cart} />
     </Drawer.Navigator>

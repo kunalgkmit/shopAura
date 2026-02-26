@@ -20,7 +20,11 @@ export function CustomAppBar({ title, showDrawer }: CustomAppBarProps) {
   return (
     <View style={[styles.container, { paddingTop: insets.top }]}>
       <View style={styles.contentWrapper}>
-        <Ionicons name="menu-outline" size={30} onPress={handleLeftIconPress} />
+        <Ionicons
+          name={showDrawer ? 'menu-outline' : 'arrow-back'}
+          size={30}
+          onPress={handleLeftIconPress}
+        />
         <Text style={styles.title}>{title}</Text>
       </View>
     </View>

@@ -14,5 +14,13 @@ declare global {
     [ROUTES.DRAWER.LOGOUT]: undefined;
   };
 
+  type StackScreenTypes = {
+    [ROUTES.STACK.PRODUCT_LISTING]: {
+      categoryName: string;
+    };
+    [ROUTES.STACK.PRODUCT_DETAILS]: undefined;
+  };
+
   type DrawerNavProp = DrawerNavigationProp<DrawerTabTypes>;
+  type StackNavProp = NativeStackNavigationProp<StackScreenTypes>;
 }
