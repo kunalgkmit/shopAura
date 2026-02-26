@@ -16,7 +16,6 @@ declare global {
 
   type StackScreenTypes = {
     [ROUTES.STACK.PRODUCT_LISTING]: {
-      categoryId: number;
       categoryName: string;
     };
     [ROUTES.STACK.PRODUCT_DETAILS]: undefined;
