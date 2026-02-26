@@ -18,7 +18,7 @@ declare global {
     [ROUTES.STACK.PRODUCT_LISTING]: {
       categoryName: string;
     };
-    [ROUTES.STACK.PRODUCT_DETAILS]: undefined;
+    [ROUTES.STACK.PRODUCT_DETAILS]: { productId: number };
   };
 
   type DrawerNavProp = DrawerNavigationProp<DrawerTabTypes>;
