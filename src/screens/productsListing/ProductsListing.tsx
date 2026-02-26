@@ -4,6 +4,7 @@ import { RouteProp, useNavigation, useRoute } from '@react-navigation/native';
 import { CustomAppBar } from '@components/customAppBar';
 import { useProductsByCategory } from '@hooks/useProducts';
 import { ProductCard } from '@components/productCard';
+import { styles } from './styles';
 
 const LIMIT = 10;
 
@@ -16,10 +17,7 @@ export function ProductsListing() {
   const [products, setProducts] = useState<any[]>([]);
   const [hasMore, setHasMore] = useState(true);
 
-  const { data, isFetching } = useProductsByCategory(
-    route.params?.categoryId,
-    offset,
-  );
+  const { data, isFetching } = useProductsByCategory(offset);
   useEffect(() => {
     console.log('WE GOT DATA>>', data);
     if (!data) return;
@@ -29,11 +27,13 @@ export function ProductsListing() {
   return (
     <>
       <CustomAppBar title={route.params?.categoryName} />
-      <View>
+      <View style={styles.container}>
         <FlatList
+          numColumns={2}
           keyExtractor={item => item.id}
+          columnWrapperStyle={{ justifyContent: 'center' }}
           data={data}
-          renderItem={({ item }) => <ProductCard />}
+          renderItem={({ item }) => <ProductCard productListingData={item} />}
         />
       </View>
     </>
