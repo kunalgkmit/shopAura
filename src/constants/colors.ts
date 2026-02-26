@@ -1,5 +1,4 @@
 export const COLORS = {
-
   TEXT_PRIMARY: '#1A1A1A',
   TEXT_SECONDARY: '#666666',
   TEXT_TERTIARY: '#999999',
@@ -14,5 +13,12 @@ export const COLORS = {
 
   BORDER: '#E5E5E5',
   SHADOW: '#000',
-  ACCENT_YELLOW: '#ffd500'
+  ACCENT_YELLOW: '#ffd500',
+
+  FASHION: '#1a1a1a',
+  ELECTRONICS: '#3B82F6',
+  GROCERY: '#6ad0a7',
+  BEAUTY: '#e4b2b8',
+  SPORTS: '#e7c143',
+  BOOKS: '#e5d085',
 };

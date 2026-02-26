@@ -1,12 +1,16 @@
-import { Image, Text, TouchableOpacity, View } from 'react-native';
+import { Text, TouchableOpacity, View } from 'react-native';
+import Ionicons from '@react-native-vector-icons/ionicons';
+import { COLORS } from '@constants/colors';
 import { styles } from './styles';
 
 export function CategoryCard({ categoryData }: CategoryCardProps) {
-  const { id, name, image } = categoryData;
+  const { name, icon, color } = categoryData;
   return (
-    <View>
-      <TouchableOpacity style={styles.box}>
-        <Image source={{ uri: image }} style={styles.categoryImage} />
+    <View style={{ paddingLeft: 10 }}>
+      <TouchableOpacity style={[styles.box, { backgroundColor: color }]}>
+        <View style={styles.iconWrapper}>
+          <Ionicons name={icon} size={30} color={COLORS.BG_CARD} />
+        </View>
         <Text style={styles.categoryName}>{name}</Text>
       </TouchableOpacity>
     </View>
