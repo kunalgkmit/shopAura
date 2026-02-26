@@ -8,6 +8,6 @@ export const ENDPOINTS = {
 
   CATEGORIES: {
     GET_CATEGORIES: '/categories/',
-    GET_PRODUCTS: '/products/'
+    GET_PRODUCTS: '/products'
   },
 };
