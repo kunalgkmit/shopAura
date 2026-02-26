@@ -37,3 +37,9 @@ interface Category {
 interface CategoryCardProps {
   categoryData: Category;
 }
+
+type CategoryAPIData = {
+  id: number;
+  name: string;
+  image: string;
+};

@@ -57,8 +57,5 @@ export const validateConfirmPassword = (
   return '';
 };
 
-export const mapCategory = ({ id, name, image }: { id: number; name: string; image: string }) => ({
-  id,
-  name,
-  image,
-});
+export const mapCategory = (data: CategoryAPIData[]) =>
+  data.slice(0, 5).map(({ id, name, image }) => ({ id, name, image }));

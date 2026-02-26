@@ -4,5 +4,5 @@ import { mapCategory } from '@utils/helpers';
 
 export const getCategories = async () => {
   const { data } = await axiosInstance.get(ENDPOINTS.CATEGORIES.GET_CATEGORIES);
-  return data.slice(0, 5).map(mapCategory);
+  return mapCategory(data);
 };
