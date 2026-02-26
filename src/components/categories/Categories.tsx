@@ -8,7 +8,9 @@ export function Categories() {
   // const { data: categories, isPending } = useCategories();
   return (
     <View style={styles.container}>
+      <View style={styles.titleWrapper}>
       <Text style={styles.title}>Categories</Text>
+      </View>
       <View style={styles.listWrapper}>
         <FlatList
           numColumns={3}

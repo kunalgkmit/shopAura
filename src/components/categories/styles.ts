@@ -13,12 +13,16 @@ export const styles = StyleSheet.create({
     fontSize: hp('3%'),
   },
   columnWrapperStyle: {
-    padding: 6,
     justifyContent: 'space-evenly',
     width: wp('100%'),
-    alignItems:'center',
-    marginLeft: wp('-5%')
+    alignItems: 'center',
+    marginLeft: wp('-5%'),
+    marginBottom: hp('2%'),
   },
 
   listWrapper: { width: '100%' },
+
+  titleWrapper: {
+    paddingVertical: 15,
+  },
 });
