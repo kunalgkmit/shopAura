@@ -33,6 +33,17 @@ interface Category {
   image: string;
 }
 
+interface ProductListing {
+  id: number;
+  title: string;
+  image: string;
+  price: number;
+}
+
 interface CategoryCardProps {
   categoryData: Category;
+}
+
+interface ProductCardProps {
+  productListingData: ProductListing;
 }
