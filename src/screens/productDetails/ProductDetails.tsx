@@ -1,3 +1,4 @@
+import { useMemo } from 'react';
 import {
   ActivityIndicator,
   FlatList,
@@ -6,23 +7,51 @@ import {
   Text,
   View,
 } from 'react-native';
+import { useDispatch, useSelector } from 'react-redux';
 import Ionicons from '@react-native-vector-icons/ionicons';
 import { RouteProp, useNavigation, useRoute } from '@react-navigation/native';
 import { useProductDetailsById } from '@hooks/useProductDetails';
 import CustomButton from '@components/customButton';
 import { TrendingNow } from '@components/trendingNow';
+import {
+  addToWishlist,
+  removeFromWishlist,
+} from '@store/actions/wishlistActions';
 import { styles } from './styles';
 
 export default function ProductDetails() {
   const route = useRoute<RouteProp<StackScreenTypes>>();
+  const { productId } = route.params;
+
+  const dispatch = useDispatch();
+  const wishlistItems = useSelector(state => state.wishlist.items);
+
+  const isWishlisted = useMemo(
+    () => wishlistItems.some(item => item.id === productId),
+    [wishlistItems],
+  );
 
   const navigation = useNavigation<StackNavProp>();
-  const { productId } = route.params;
 
   const { data, isFetching } = useProductDetailsById(productId);
 
   const handleBackButton = () => {
     navigation.pop();
+  };
+
+  const handleWishlist = () => {
+    if (isWishlisted) {
+      dispatch(removeFromWishlist(productId));
+    } else {
+      dispatch(
+        addToWishlist({
+          id: data.id,
+          title: data.title,
+          price: data.price,
+          image: data.images[0],
+        }),
+      );
+    }
   };
 
   if (isFetching) return <ActivityIndicator />;
@@ -56,7 +85,10 @@ export default function ProductDetails() {
       </ScrollView>
       <View style={styles.buttonWrapper}>
         <View style={styles.buttonSize}>
-          <CustomButton title="Add to wishlist" onPress={() => {}} />
+          <CustomButton
+            title={isWishlisted ? 'Remove from Wishlist' : 'Add to Wishlist'}
+            onPress={handleWishlist}
+          />
         </View>
         <View style={styles.buttonSize}>
           <CustomButton title="Buy Now" onPress={() => {}} />
