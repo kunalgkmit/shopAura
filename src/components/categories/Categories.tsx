@@ -5,9 +5,6 @@ import { CATEGORIES } from '@constants/constants';
 import { styles } from './styles';
 
 export function Categories() {
-  // getCategories hook call
-  // const { data: categories, isPending } = useCategories();
-
   const renderCategory = useCallback(
     ({ item }: { item: Category }) => (
       <CategoryCard key={item.id} categoryData={item} />

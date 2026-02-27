@@ -4,9 +4,19 @@ import { useNavigation } from '@react-navigation/native';
 import { ROUTES } from '@constants/routes';
 import { COLORS } from '@constants/colors';
 import { styles } from './styles';
+import { FavouriteButton } from '@components/favouriteButton';
+import { useSelector } from 'react-redux';
+import { useMemo } from 'react';
 
 export function ProductCard({ productListingData }: ProductCardProps) {
   const navigation = useNavigation<StackNavProp>();
+
+  const wishlistItems = useSelector(state => state.wishlist.items);
+
+  const isWishlisted = useMemo(
+    () => wishlistItems.some(item => item.id === productListingData.id),
+    [wishlistItems, productListingData.id],
+  );
 
   const { id, title, image, price } = productListingData;
 
@@ -14,8 +24,13 @@ export function ProductCard({ productListingData }: ProductCardProps) {
     navigation.push(ROUTES.STACK.PRODUCT_DETAILS, { productId: id });
   };
 
+  console.log('ID SENT>>>>', productListingData.id);
+
   return (
     <View style={styles.parentBox}>
+      <View style={styles.favIcon}>
+        <FavouriteButton product={{ id, title, price, image }} />
+      </View>
       <TouchableOpacity onPress={handleCategoryPress}>
         <View style={styles.childBox}>
           <Image source={{ uri: image }} style={styles.image} />

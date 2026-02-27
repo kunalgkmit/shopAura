@@ -52,10 +52,7 @@ export const styles = StyleSheet.create({
   buttonSize: { width: '45%' },
 
   backIcon: {
-    position: 'absolute',
-    backgroundColor: COLORS.BG_CARD,
-    top: hp('5%'),
-    left: wp('5%'),
+    backgroundColor: COLORS.SHADOW,
     zIndex: 1,
     padding: 10,
     borderRadius: wp('10%'),
@@ -64,5 +61,16 @@ export const styles = StyleSheet.create({
   descriptionTitle: {
     fontSize: hp('2.5%'),
     fontWeight: '500',
+  },
+
+  topBar: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    position: 'absolute',
+    top: hp('5%'),
+    zIndex: 1,
+    width: '100%',
+    padding: 20,
   },
 });

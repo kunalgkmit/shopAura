@@ -1,4 +1,4 @@
-import { SET_AUTH_TOKENS } from '@store/actionTypes/authActionTypes';
+import { SET_AUTH_TOKENS, SET_PROFILE } from '@store/actionTypes/authActionTypes';
 
 export const setAuthTokens = (tokens: {
   accessToken: string;
@@ -9,4 +9,9 @@ export const setAuthTokens = (tokens: {
     ...tokens,
     isLoggedIn: true,
   },
+});
+
+export const setProfile = (profile: UserProfileProps) => ({
+  type: SET_PROFILE,
+  payload: profile,
 });

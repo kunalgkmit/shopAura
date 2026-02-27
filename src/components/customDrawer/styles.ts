@@ -51,4 +51,10 @@ export const styles = StyleSheet.create({
   itemTitle: {
     fontWeight: 'bold',
   },
+
+  profileImage: {
+    height: hp('11%'),
+    width: wp('24%'),
+    borderRadius: 50,
+  },
 });

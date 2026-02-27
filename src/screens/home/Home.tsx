@@ -3,6 +3,7 @@ import { CustomAppBar } from '@components/customAppBar';
 import { Banner } from '@components/banner';
 import { Categories } from '@components/categories';
 import { styles } from './styles';
+import { TrendingNow } from '@components/trendingNow';
 
 export default function Home() {
   return (
@@ -11,6 +12,7 @@ export default function Home() {
       <View style={styles.container}>
         <Banner />
         <Categories />
+        <TrendingNow title="Trending Now" />
       </View>
     </>
   );

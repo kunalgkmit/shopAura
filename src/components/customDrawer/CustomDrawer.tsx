@@ -1,11 +1,11 @@
-import { View, Text, TouchableOpacity } from 'react-native';
+import { View, Text, TouchableOpacity, Image } from 'react-native';
 import { DrawerContentComponentProps } from '@react-navigation/drawer';
 import Ionicons from '@react-native-vector-icons/ionicons';
-
 import { ROUTES } from '@constants/routes';
 import { ICONS } from '@constants/constants';
 import { COLORS } from '@constants/colors';
 import { styles } from './styles';
+import { useSelector } from 'react-redux';
 
 const DRAWER_ICONS = {
   [ROUTES.DRAWER.HOME]: {
@@ -26,18 +26,21 @@ export default function CustomDrawer({
   state,
   navigation,
 }: DrawerContentComponentProps) {
+  const { name, email, avatar } = useSelector(state => state.profile);
   return (
     <View style={styles.container}>
       <View style={styles.contentWrapper}>
         <View style={styles.buttonTextWrapper}>
-          {/* temporary data for profile*/}
-
           <View style={styles.profileImageWrapper}>
-            <Ionicons name="person" color={COLORS.BG_CARD} size={25} />
+            {avatar ? (
+              <Image source={{ uri: avatar }} style={styles.profileImage} />
+            ) : (
+              <Ionicons name="person" color={COLORS.BG_CARD} size={25} />
+            )}
           </View>
           <View style={styles.textWrapper}>
-            <Text style={styles.text}>Sample User</Text>
-            <Text style={styles.text}>sample@gmail.com</Text>
+            <Text style={styles.text}>{name}</Text>
+            <Text style={styles.text}>{email}</Text>
           </View>
         </View>
       </View>

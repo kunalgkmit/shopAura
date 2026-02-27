@@ -3,12 +3,12 @@ import { ProductCard } from '@components/productCard';
 import { useProductsByCategory } from '@hooks/useProducts';
 import { styles } from './styles';
 
-export function TrendingNow() {
+export function TrendingNow({ title }: { title: string }) {
   const { data: products, isFetching } = useProductsByCategory(1);
   return (
     <View>
       <View style={styles.titleWrapper}>
-        <Text style={styles.title}>Trending Now</Text>
+        <Text style={styles.title}>{title}</Text>
       </View>
       <FlatList
         horizontal

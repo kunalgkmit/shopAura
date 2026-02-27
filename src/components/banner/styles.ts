@@ -6,7 +6,12 @@ import {
 
 export const styles = StyleSheet.create({
   container: {
-    alignItems:'center'
+    alignItems: 'center',
   },
-  homeBanner: { height: hp('20%'), width: wp('95%'), borderRadius: 25 },
+  homeBanner: {
+    height: hp('18%'),
+    width: wp('95%'),
+    borderRadius: 25,
+    paddingTop: 10,
+  },
 });

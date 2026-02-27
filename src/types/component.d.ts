@@ -54,3 +54,8 @@ type CategoryAPIData = {
 interface ProductCardProps {
   productListingData: ProductListing;
 }
+
+type FavouriteButtonProps = {
+  product: ProductListing;
+  size?: number;
+};

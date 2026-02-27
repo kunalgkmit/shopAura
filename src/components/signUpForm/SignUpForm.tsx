@@ -24,6 +24,9 @@ import { COLORS } from '@constants/colors';
 import { APP_INFO } from '@constants/constants';
 
 import { styles } from './styles';
+import { getUserProfile } from '@services/profile.service';
+import { setProfile } from '@store/actions/authActions';
+import store from '@store';
 
 export default function SignUpForm({ handleToggleLogin }: ToggleAuthScreen) {
   const [name, setName] = useState('');
@@ -138,7 +141,12 @@ export default function SignUpForm({ handleToggleLogin }: ToggleAuthScreen) {
     userSignUpMutate(
       { name, email, password, avatar },
       {
-        onSuccess: () => handleSignUpSuccess(),
+        onSuccess: async data => {
+          handleSignUpSuccess();
+
+          const profile = await getUserProfile(data.id);
+          store.dispatch(setProfile(profile));
+        },
       },
     );
   };

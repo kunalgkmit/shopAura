@@ -1,6 +1,5 @@
 import { useMemo } from 'react';
 import {
-  ActivityIndicator,
   FlatList,
   Image,
   ScrollView,
@@ -13,11 +12,10 @@ import { RouteProp, useNavigation, useRoute } from '@react-navigation/native';
 import { useProductDetailsById } from '@hooks/useProductDetails';
 import CustomButton from '@components/customButton';
 import { TrendingNow } from '@components/trendingNow';
-import {
-  addToWishlist,
-  removeFromWishlist,
-} from '@store/actions/wishlistActions';
+import { COLORS } from '@constants/colors';
+import { FavouriteButton } from '@components/favouriteButton';
 import { styles } from './styles';
+import CustomActivityIndicator from '@components/customActivityIndicator';
 
 export default function ProductDetails() {
   const route = useRoute<RouteProp<StackScreenTypes>>();
@@ -28,7 +26,7 @@ export default function ProductDetails() {
 
   const isWishlisted = useMemo(
     () => wishlistItems.some(item => item.id === productId),
-    [wishlistItems],
+    [wishlistItems, productId],
   );
 
   const navigation = useNavigation<StackNavProp>();
@@ -39,28 +37,31 @@ export default function ProductDetails() {
     navigation.pop();
   };
 
-  const handleWishlist = () => {
-    if (isWishlisted) {
-      dispatch(removeFromWishlist(productId));
-    } else {
-      dispatch(
-        addToWishlist({
-          id: data.id,
-          title: data.title,
-          price: data.price,
-          image: data.images[0],
-        }),
-      );
-    }
-  };
-
-  if (isFetching) return <ActivityIndicator />;
+  if (isFetching) {
+    return <CustomActivityIndicator />;
+  }
   return (
     <View>
       <ScrollView showsVerticalScrollIndicator={false}>
         <View style={styles.container}>
-          <View style={styles.backIcon}>
-            <Ionicons name="arrow-back" size={25} onPress={handleBackButton} />
+          <View style={styles.topBar}>
+            <View style={styles.backIcon}>
+              <Ionicons
+                name="arrow-back"
+                size={25}
+                onPress={handleBackButton}
+                color={COLORS.BG_CARD}
+              />
+            </View>
+            <FavouriteButton
+              size={26}
+              product={{
+                id: data.id,
+                title: data.title,
+                price: data.price,
+                image: data.images[0],
+              }}
+            />
           </View>
           <View>
             <FlatList
@@ -80,16 +81,10 @@ export default function ProductDetails() {
             <Text style={styles.descriptionTitle}>Description</Text>
             <Text style={styles.description}>{data.description}</Text>
           </View>
-          <TrendingNow />
+          <TrendingNow title="Recommended Products" />
         </View>
       </ScrollView>
       <View style={styles.buttonWrapper}>
-        <View style={styles.buttonSize}>
-          <CustomButton
-            title={isWishlisted ? 'Remove from Wishlist' : 'Add to Wishlist'}
-            onPress={handleWishlist}
-          />
-        </View>
         <View style={styles.buttonSize}>
           <CustomButton title="Buy Now" onPress={() => {}} />
         </View>

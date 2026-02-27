@@ -5,6 +5,7 @@ import { ProductCard } from '@components/productCard';
 import { CustomAppBar } from '@components/customAppBar';
 import { useProductsByCategory } from '@hooks/useProducts';
 import { styles } from './styles';
+import CustomActivityIndicator from '@components/customActivityIndicator';
 
 const LIMIT = 10;
 
@@ -32,6 +33,7 @@ export function ProductsListing() {
   return (
     <>
       <CustomAppBar title={route.params?.categoryName} />
+      {isFetching ? <CustomActivityIndicator /> : null}
       <View style={styles.container}>
         <FlatList
           numColumns={2}
