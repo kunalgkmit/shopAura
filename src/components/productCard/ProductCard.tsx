@@ -24,8 +24,6 @@ export function ProductCard({ productListingData }: ProductCardProps) {
     navigation.push(ROUTES.STACK.PRODUCT_DETAILS, { productId: id });
   };
 
-  console.log('ID SENT>>>>', productListingData.id);
-
   return (
     <View style={styles.parentBox}>
       <View style={styles.favIcon}>
