@@ -19,6 +19,8 @@ declare global {
       categoryName: string;
     };
     [ROUTES.STACK.PRODUCT_DETAILS]: { productId: number };
+    [ROUTES.STACK.CHECKOUT]: undefined;
+    [ROUTES.STACK.CART]: undefined;
   };
 
   type DrawerNavProp = DrawerNavigationProp<DrawerTabTypes>;

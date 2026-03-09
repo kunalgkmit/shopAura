@@ -8,7 +8,6 @@ export const useUserLogin = () => {
   return useMutation({
     mutationFn: userLogin,
     onSuccess: async data => {
-      console.log("SHIT MAN>>>>", data)
       store.dispatch(
         setAuthTokens({
           accessToken: data.access_token,

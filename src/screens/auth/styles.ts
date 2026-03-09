@@ -16,10 +16,6 @@ export const styles = StyleSheet.create({
     fontSize: hp('6%'),
   },
 
-  titleWrapper: {
-    marginVertical: wp('10%'),
-  },
-
   authFooter: {
     padding: 10,
     flexDirection: 'row',

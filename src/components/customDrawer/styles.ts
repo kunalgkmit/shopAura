@@ -57,4 +57,16 @@ export const styles = StyleSheet.create({
     width: wp('24%'),
     borderRadius: 50,
   },
+
+  logoutButton: {
+  flexDirection: 'row',
+  alignItems: 'center',
+  padding: 16,
+  gap: 10,
+},
+logoutText: {
+  fontSize: hp('2%'),
+  color: COLORS.SHADOW,
+  fontWeight: '500',
+},
 });

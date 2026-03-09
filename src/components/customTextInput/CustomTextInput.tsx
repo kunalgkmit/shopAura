@@ -1,5 +1,11 @@
 import React, { useState } from 'react';
-import { Text, TextInput, TouchableOpacity, View } from 'react-native';
+import {
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
+  KeyboardAvoidingView,
+} from 'react-native';
 import Ionicons from '@react-native-vector-icons/ionicons';
 
 import { COLORS } from '@constants/colors';

@@ -11,6 +11,7 @@ export const COLORS = {
   BG_PRODUCT_CARD: '#e8e8e8',
 
   RED: '#FF3B30',
+  GREEN: '#48A111',
 
   BORDER: '#E5E5E5',
   SHADOW: '#000',
@@ -24,4 +25,7 @@ export const COLORS = {
   BOOKS: '#e5d085',
 
   OPAQUE_BG: 'rgba(255, 255, 255, 0.2)',
+
+  HOME_BANNER_PEACH: '#FFC5A3',
+  HOME_BANNER_GREY: '#DFDFDF',
 };

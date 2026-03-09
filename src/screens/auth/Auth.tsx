@@ -1,5 +1,11 @@
 import { useState } from 'react';
-import { Text, TouchableOpacity, View } from 'react-native';
+import {
+  KeyboardAvoidingView,
+  Platform,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 
 import SignUpForm from '@components/signUpForm';
 import LoginForm from '@components/loginForm';
@@ -14,30 +20,33 @@ export default function AuthScreen() {
   };
 
   return (
-    <View style={styles.container}>
-      <View style={styles.titleWrapper}>
+    <KeyboardAvoidingView
+      style={{ flex: 1 }}
+      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+    >
+      <View style={styles.container}>
         <Text style={styles.title}>
           {isLogin ? APP_INFO.LOGIN : APP_INFO.SIGN_UP}
         </Text>
-      </View>
-      {isLogin ? (
-        <LoginForm />
-      ) : (
-        <SignUpForm handleToggleLogin={handleToggleLogin} />
-      )}
+        {isLogin ? (
+          <LoginForm />
+        ) : (
+          <SignUpForm handleToggleLogin={handleToggleLogin} />
+        )}
 
-      <View style={styles.authFooter}>
-        <Text style={styles.footerText}>
-          {isLogin
-            ? APP_INFO.DO_NOT_HAVE_ACCOUNT
-            : APP_INFO.ALREADY_HAVING_ACCOUNT}
-        </Text>
-        <TouchableOpacity onPress={handleToggleLogin}>
-          <Text style={[styles.isLogin, styles.toggleButton]}>
-            {isLogin ? APP_INFO.SIGN_UP : APP_INFO.LOGIN}
+        <View style={styles.authFooter}>
+          <Text style={styles.footerText}>
+            {isLogin
+              ? APP_INFO.DO_NOT_HAVE_ACCOUNT
+              : APP_INFO.ALREADY_HAVING_ACCOUNT}
           </Text>
-        </TouchableOpacity>
+          <TouchableOpacity onPress={handleToggleLogin}>
+            <Text style={[styles.isLogin, styles.toggleButton]}>
+              {isLogin ? APP_INFO.SIGN_UP : APP_INFO.LOGIN}
+            </Text>
+          </TouchableOpacity>
+        </View>
       </View>
-    </View>
+    </KeyboardAvoidingView>
   );
 }

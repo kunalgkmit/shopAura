@@ -1,4 +1,4 @@
-import { SET_AUTH_TOKENS } from '@store/actionTypes/authActionTypes';
+import { LOGOUT, SET_AUTH_TOKENS } from '@store/actionTypes/authActionTypes';
 
 const initialState = {
   accessToken: '',
@@ -13,6 +13,10 @@ export const authReducer = (state = initialState, action: any) => {
         ...state,
         ...action.payload,
       };
+
+    case LOGOUT:
+      return initialState;
+
     default:
       return state;
   }

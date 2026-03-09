@@ -8,7 +8,7 @@ import { COLORS } from '@constants/colors';
 import { styles } from './styles';
 import { TouchableOpacity } from 'react-native';
 
-export function FavouriteButton({ product, size = 23 }: FavouriteButtonProps) {
+export function FavouriteButton({ product, size = 23, onWishlist }: FavouriteButtonProps) {
   const dispatch = useDispatch();
   const wishlistItems = useSelector(state => state.wishlist.items);
 
@@ -17,11 +17,11 @@ export function FavouriteButton({ product, size = 23 }: FavouriteButtonProps) {
   );
 
   const handleToggle = () => {
-    console.log('ID GOT>>>', product.id)
     if (isWishlisted) {
       dispatch(removeFromWishlist(product.id));
     } else {
       dispatch(addToWishlist(product));
+      onWishlist?.();
     }
   };
 

@@ -43,8 +43,17 @@ export const CATEGORIES = [
 
 export const IMAGES = {
   HOME_BANNER: require('@assets/images/homeBanner.png'),
+  HEADPHONE: require('@assets/images/headphone.png'),
 };
 
 export const FONTS = {
   PLAYFAIR_DISPLAY: 'PlayfairDisplay-Medium',
+  CORMORANT_ITALIC: 'CormorantGaramond-Italic'
 };
+
+export const PAYMENT_METHODS = [
+  { id: 'card', label: 'Credit / Debit Card', icon: 'card-outline' },
+  { id: 'gpay', label: 'Google Pay', icon: 'logo-google' },
+  { id: 'upi', label: 'UPI', icon: 'phone-portrait-outline' },
+  { id: 'cod', label: 'Cash on Delivery', icon: 'cash-outline' },
+];

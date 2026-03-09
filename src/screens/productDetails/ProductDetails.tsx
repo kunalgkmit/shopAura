@@ -1,11 +1,5 @@
 import { useMemo } from 'react';
-import {
-  FlatList,
-  Image,
-  ScrollView,
-  Text,
-  View,
-} from 'react-native';
+import { FlatList, Image, ScrollView, Text, View } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import Ionicons from '@react-native-vector-icons/ionicons';
 import { RouteProp, useNavigation, useRoute } from '@react-navigation/native';
@@ -16,6 +10,8 @@ import { COLORS } from '@constants/colors';
 import { FavouriteButton } from '@components/favouriteButton';
 import { styles } from './styles';
 import CustomActivityIndicator from '@components/customActivityIndicator';
+import { addToCart } from '@store/actions/cartActions';
+import { ROUTES } from '@constants/routes';
 
 export default function ProductDetails() {
   const route = useRoute<RouteProp<StackScreenTypes>>();
@@ -37,11 +33,29 @@ export default function ProductDetails() {
     navigation.pop();
   };
 
+  const handleBuyNow = () => {
+    dispatch(
+      addToCart({
+        id: data.id,
+        title: data.title,
+        price: data.price,
+        image: data.images[0],
+      }),
+    );
+    navigation.push(ROUTES.STACK.CART);
+  };
+
   if (isFetching) {
     return <CustomActivityIndicator />;
   }
   return (
-    <View>
+    <View
+      style={{
+        justifyContent: 'space-between',
+        flex: 1,
+        alignItems: 'center',
+      }}
+    >
       <ScrollView showsVerticalScrollIndicator={false}>
         <View style={styles.container}>
           <View style={styles.topBar}>
@@ -86,7 +100,7 @@ export default function ProductDetails() {
       </ScrollView>
       <View style={styles.buttonWrapper}>
         <View style={styles.buttonSize}>
-          <CustomButton title="Buy Now" onPress={() => {}} />
+          <CustomButton title="Buy Now" onPress={handleBuyNow} />
         </View>
       </View>
     </View>

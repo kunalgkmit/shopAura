@@ -7,6 +7,8 @@ import { COLORS } from '@constants/colors';
 import { ROUTES } from '@constants/routes';
 import { removeFromWishlist } from '@store/actions/wishlistActions';
 import { styles } from './styles';
+import { addToCart } from '@store/actions/cartActions';
+import Toast from 'react-native-toast-message';
 
 export function WishlistCard({ productListingData }: ProductCardProps) {
   const dispatch = useDispatch();
@@ -23,6 +25,16 @@ export function WishlistCard({ productListingData }: ProductCardProps) {
     dispatch(removeFromWishlist(id));
   };
 
+  const handleAddToCart = () => {
+    dispatch(addToCart({ id, title, price, image }));
+    Toast.show({
+      type: 'success',
+      text1: 'Added to cart!',
+      visibilityTime: 2000,
+    });
+    handleRemove();
+  };
+
   return (
     <View style={styles.container}>
       <TouchableOpacity onPress={handlePress}>
@@ -30,7 +42,7 @@ export function WishlistCard({ productListingData }: ProductCardProps) {
           <Image source={{ uri: image }} style={styles.image} />
           <View style={styles.contentWrapper}>
             <View>
-              <Text style={styles.title} numberOfLines={1}>
+              <Text style={styles.title} numberOfLines={1} ellipsizeMode="tail">
                 {title}
               </Text>
               <Text style={styles.price}>₹{price}</Text>
@@ -48,6 +60,7 @@ export function WishlistCard({ productListingData }: ProductCardProps) {
                 size={25}
                 style={styles.cartIcon}
                 color={COLORS.BG_CARD}
+                onPress={handleAddToCart}
               />
             </View>
           </View>

@@ -5,7 +5,9 @@ import { ROUTES } from '@constants/routes';
 import { ICONS } from '@constants/constants';
 import { COLORS } from '@constants/colors';
 import { styles } from './styles';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { logout } from '@store/actions/authActions';
+import { clearCart } from '@store/actions/cartActions';
 
 const DRAWER_ICONS = {
   [ROUTES.DRAWER.HOME]: {
@@ -27,6 +29,12 @@ export default function CustomDrawer({
   navigation,
 }: DrawerContentComponentProps) {
   const { name, email, avatar } = useSelector(state => state.profile);
+  const dispatch = useDispatch();
+
+  const handleLogout = () => {
+    dispatch(logout());
+    dispatch(clearCart());
+  };
   return (
     <View style={styles.container}>
       <View style={styles.contentWrapper}>
@@ -74,6 +82,10 @@ export default function CustomDrawer({
           </TouchableOpacity>
         );
       })}
+      <TouchableOpacity style={styles.logoutButton} onPress={handleLogout}>
+        <Ionicons name="log-out-outline" size={25} color={COLORS.RED} />
+        <Text style={styles.logoutText}>Logout</Text>
+      </TouchableOpacity>
     </View>
   );
 }

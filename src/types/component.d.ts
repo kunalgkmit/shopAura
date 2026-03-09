@@ -55,7 +55,27 @@ interface ProductCardProps {
   productListingData: ProductListing;
 }
 
-type FavouriteButtonProps = {
+interface FavouriteButtonProps {
   product: ProductListing;
   size?: number;
-};
+  onWishlist?: () => void;
+}
+
+interface CartItem {
+  id: number;
+  title: string;
+  price: number;
+  image: string;
+  quantity: number;
+}
+
+interface CartCardProps {
+  cartListingItem: CartItem;
+}
+
+type CartItemPayload = Omit<CartItem, 'quantity'>;
+
+interface QuantityManagerProps {
+  id: number;
+  quantity: number;
+}

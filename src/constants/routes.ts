@@ -10,5 +10,8 @@ export const ROUTES = {
     HOME: 'Home',
     PRODUCT_LISTING: 'ProductListing',
     PRODUCT_DETAILS: 'ProductDetails',
+    CHECKOUT: 'Checkout',
+    CART: 'StackCart',
+    THANK_YOU: 'ThankYou',
   },
 };
