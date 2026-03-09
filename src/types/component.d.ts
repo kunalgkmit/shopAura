@@ -1,0 +1,81 @@
+interface CustomTextInputProps {
+  placeholder: string;
+  value: string;
+  onChangeText?: (data: string) => void;
+  error?: string;
+  editable?: boolean;
+  autoCapitalize?: 'none';
+  secureTextEntry?: boolean;
+  label?: string;
+  helperText?: string;
+}
+
+interface ButtonProps {
+  title: string;
+  onPress: () => void;
+  showLoading?: boolean;
+  isLogout?: boolean;
+  isClearFilter?: boolean;
+}
+
+interface ToggleAuthScreen {
+  handleToggleLogin: () => void;
+}
+
+interface CustomAppBarProps {
+  title: string;
+  showDrawer?: boolean;
+}
+
+interface Category {
+  id: number;
+  name: string;
+  icon: string;
+  color: string;
+}
+
+interface ProductListing {
+  id: number;
+  title: string;
+  image: string;
+  price: number;
+}
+
+interface CategoryCardProps {
+  categoryData: Category;
+}
+
+type CategoryAPIData = {
+  id: number;
+  name: string;
+  image: string;
+};
+
+interface ProductCardProps {
+  productListingData: ProductListing;
+}
+
+interface FavouriteButtonProps {
+  product: ProductListing;
+  size?: number;
+  onWishlist?: () => void;
+}
+
+interface CartItem {
+  id: number;
+  title: string;
+  price: number;
+  image: string;
+  quantity: number;
+}
+
+interface CartCardProps {
+  cartListingItem: CartItem;
+}
+
+type CartItemPayload = Omit<CartItem, 'quantity'>;
+
+interface QuantityManagerProps {
+  id: number;
+  quantity: number;
+}
